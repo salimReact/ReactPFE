@@ -1,5 +1,4 @@
 import React from 'react'
-import img from '../assets/images/men-01.jpg'
 export default function Explore() {
   return (
     <div><section className="section" id="explore">
@@ -30,12 +29,12 @@ export default function Explore() {
               </div>
               <div className="col-lg-6">
                 <div className="first-image">
-                  <img src={img} alt="" />
+                  <img src="" alt="" />
                 </div>
               </div>
               <div className="col-lg-6">
                 <div className="second-image">
-                  <img src={img} alt="" />
+                  <img src="" alt="" />
                 </div>
               </div>
               <div className="col-lg-6">

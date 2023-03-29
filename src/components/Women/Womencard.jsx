@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import img from '../../assets/images/women-01.jpg'
 
 export default function Womencard() {
   return (
@@ -14,7 +13,7 @@ export default function Womencard() {
           <li><a href="/profile"><i className="fa fa-shopping-cart" /></a></li>
         </ul>
       </div>
-      <img src={img} alt="" />
+      <img src="" alt="" />
     </div>
     <div className="down-content">
       <h4>New Green Jacket</h4>

@@ -2,7 +2,6 @@ import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Subscribe from '../components/Subscribe'
-import img from '../assets/images/single-product-01.jpg'
 
 
 
@@ -28,7 +27,7 @@ export default function About() {
             <div className="row">
                 <div className="col-lg-6">
                     <div className="left-image">
-                        <img src={img} alt=""/>
+                        <img src="images/single-product-01.jpg" alt=""/>
                     </div>
                 </div>
                 <div className="col-lg-6">

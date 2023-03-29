@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../assets/images/logo.png'
 
 export default function Header() {
   return (
@@ -14,7 +13,7 @@ export default function Header() {
           <div className="col-12">
             <nav className="main-nav">
                <a href="/" className="logo">
-                <img src={logo} />
+                <img src="images/logo.png" />
               </a>
               <ul className="nav">
                 <li className="scroll-to-section"><a href="#top" className="active">Home</a></li>

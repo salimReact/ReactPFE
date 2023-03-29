@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import img from '../assets/images/single-product-01.jpg'
 export default function Profile() {
   return (
     <Fragment>
@@ -25,8 +24,8 @@ export default function Profile() {
             <div className="row">
                 <div className="col-lg-8">
                 <div className="left-images">
-                    <img src={img} alt=""/>
-                    <img src={img} alt=""/>
+                    <img src="images/logo.png" alt=""/>
+                    <img src="images/logo.png" alt=""/>
                 </div>
             </div>
             <div className="col-lg-4">

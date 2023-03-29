@@ -25,7 +25,7 @@ export default function Men() {
     <div className="container">
         <div className="row">
           {data.map((e)=> (
-            <Men_card  key ={e.id} name={e.name} price={e.price}/>
+            <Men_card  key ={e.id} name={e.name} price={e.price} img={e.img}/>
           ))}
             </div>
             </div>

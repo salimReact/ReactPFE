@@ -1,7 +1,4 @@
 import React, { Fragment } from 'react'
-import lban from '../assets/images/left-banner-image.jpg'
-import lban1 from '../assets/images/baner-right-image-01.jpg'
-import img from '../assets/images/men-01.jpg'
 
 
 export default function Banner() {
@@ -20,7 +17,7 @@ export default function Banner() {
                   <a href="#">Purchase Now!</a>
                 </div>
               </div>
-              <img src={lban} alt="" />
+              <img src="images/men-01.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -43,7 +40,7 @@ export default function Banner() {
                         </div>
                       </div>
                     </div>
-                    <img src={lban1} />
+                    <img src="images/men-01.jpg" />
                   </div>
                 </div>
               </div>
@@ -63,7 +60,7 @@ export default function Banner() {
                         </div>
                       </div>
                     </div>
-                    <img src={lban}  />
+                    <img src="images/baner-right-image-01.jpg"  />
                   </div>
                 </div>
               </div>
@@ -83,7 +80,7 @@ export default function Banner() {
                         </div>
                       </div>
                     </div>
-                    <img src={lban1} />
+                    <img src="images/logo.png" />
 
                   </div>
                 </div>
@@ -104,7 +101,7 @@ export default function Banner() {
                         </div>
                       </div>
                     </div>
-                    <img src={lban1} />
+                    <img src="images/logo.png" />
                   </div>
                 </div>
               </div>

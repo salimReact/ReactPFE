@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import img from '../assets/images/men-01.jpg'
 
 
 export default function InfluencersCard(props) {
@@ -15,7 +14,7 @@ export default function InfluencersCard(props) {
                     <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
-            <img src={img} alt=""
+            <img src="images/men-01.jpg" alt=""
             />
         </div>
         <div className="down-content">

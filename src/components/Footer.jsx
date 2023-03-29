@@ -1,5 +1,4 @@
 import React from 'react'
-import img from '../assets/images/single-product-01.jpg'
 
 export default function Footer() {
   return (
@@ -9,7 +8,7 @@ export default function Footer() {
         <div className="col-lg-3">
           <div className="first-item">
             <div className="logo">
-              <img src={img} alt="hexashop ecommerce templatemo" />
+              <img src="images/logo.png" alt="hexashop ecommerce templatemo" />
             </div>
             <ul>
               <li><a href="/">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>

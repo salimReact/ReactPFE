@@ -1,8 +1,8 @@
 import React, {  Fragment } from 'react'
-import img from '../../assets/images/men-01.jpg'
 export default function Men_card(props) {
 const name = props.name;
 const price = props.price;
+const img = props.img;
 
 
   return (
