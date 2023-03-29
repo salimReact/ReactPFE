@@ -23,7 +23,7 @@ function EditorRegistrationPart1(props) {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-  console.log(formData.Fname);
+  console.log(formData);
 
   return (
     <Fragment>
@@ -55,9 +55,9 @@ function EditorRegistrationPart1(props) {
           </div>
         </div>
         <div className="gender-details">
-          <input type="radio" name="gender" id="dot-1"value={formData.gender} onChange={handleChange}/>
-          <input type="radio" name="gender" id="dot-2"value={formData.gender} onChange={handleChange}/>
-          <input type="radio" name="gender" id="dot-3"value={formData.gender} onChange={handleChange}/>
+          <input type="radio" name="gender" id="dot-1" value="male" onChange={handleChange}/>
+          <input type="radio" name="gender" id="dot-2" value="female" onChange={handleChange}/>
+          <input type="radio" name="gender" id="dot-3" value="others" onChange={handleChange}/>
           <span className="gender-title">Gender</span>
           <div className="category">
             <label htmlFor="dot-1">

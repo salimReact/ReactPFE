@@ -4,6 +4,8 @@ import axios from 'axios';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const Axios = axios.create({
     baseURL: 'http://localhost:3000/'
 });
@@ -13,7 +15,16 @@ function Login() {
       password:password,
     }).then((response)=>{
       console.log(response);
+      if (response.data.message === "Login successful") {
+        window.location.href = "/";
+      } else {
+        setErrorMessage("Invalid email or password");
+      }
     })
+    .catch((error) => {
+      console.log(error);
+      setErrorMessage("An error occurred while logging in");
+    });
     }
   return (
     <Fragment>
@@ -39,7 +50,8 @@ function Login() {
              
              </div>
         <div className="button">
-            <button onClick={login}>Login</button>
+            <button className='Loginbutton' onClick={login}>Login</button>
+            {errorMessage && <p className="error">{errorMessage}</p>}
  </div>
     </div>
   </div>
