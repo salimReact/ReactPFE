@@ -47,7 +47,18 @@ Axios.post("http://localhost:3000/register",{
   gender:data.gender,
   hobbies: hobbiesString,
   image:data.image,
+}).then((response)=>{
+  console.log(response);
+  if (response.data.message === "User registered successfully") {
+    window.location.href = "/";
+  } else {
+    setErrorMessage("Error registering user");
+  }
 })
+.catch((error) => {
+  console.log(error);
+  setErrorMessage("An error occurred while registering user");
+});
 
 
 

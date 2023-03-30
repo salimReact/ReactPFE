@@ -41,7 +41,18 @@ Axios.post("http://localhost:3000/registerAnnoncer",{
   companyPhone:data.companyPhone,
   companyDomaine:data.companyDomaine,
   companyType:data.companyType,
+}).then((response)=>{
+  console.log(response);
+  if (response.data.message === "User registered successfully") {
+    window.location.href = "/";
+  } else {
+    setErrorMessage("Error registering user");
+  }
 })
+.catch((error) => {
+  console.log(error);
+  setErrorMessage("An error occurred while registering user");
+});
 
 
   }
