@@ -14,10 +14,7 @@
   background: linear-gradient(135deg, #999999, #F7F7F7);
 
 }
-.choicetitle{
-  font-size: 25px;
-  font-weight: 500;
-}
+
 .choice{
   display: flex;
   justify-content: center;

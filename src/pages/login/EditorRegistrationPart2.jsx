@@ -10,9 +10,12 @@ export default function EditorRegistrationPart2() {
 
 
   if (!formData) {
-    return <div>Loading..</div>;
+    return <div>Loading...</div>;
   }
-
+  const [image, setImage] = useState(null);
+  const handleImageChange = (event) => {
+    setImage(event.target.files[0]);
+  };
   const [data, setData] = useState({
     Fname: formData.Fname,
     username: formData.username,
@@ -21,8 +24,10 @@ export default function EditorRegistrationPart2() {
     password: formData.password,
     gender: formData.gender,
     hobbies: [],
-    image : "",
-  });
+  })
+  console.log(data);
+  console.log(image);
+
   const handleInputChange = (event) => {
     const { name, checked } = event.target;
     if (checked) {
@@ -31,41 +36,41 @@ export default function EditorRegistrationPart2() {
       setData({ ...data, hobbies: data.hobbies.filter((hobby) => hobby !== name) });
     }
   };
-  console.log(data);
   const Axios = axios.create({
     baseURL: 'http://localhost:3000/'
 });
 const hobbiesString = JSON.stringify(data.hobbies);
 
-  const register = () => {
-Axios.post("http://localhost:3000/register",{
-  Fname:data.Fname,
-  username:data.username,
-  email:data.email,
-  phone:data.phone,
-  password:data.password,
-  gender:data.gender,
-  hobbies: hobbiesString,
-  image:data.image,
-}).then((response)=>{
-  console.log(response);
-  if (response.data.message === "User registered successfully") {
-    window.location.href = "/";
-  } else {
-    setErrorMessage("Error registering user");
-  }
-})
-.catch((error) => {
-  console.log(error);
-  setErrorMessage("An error occurred while registering user");
-});
+const register = () => {
+  const formData = new FormData();
+  formData.append("Fname", data.Fname);
+  formData.append("username", data.username);
+  formData.append("email", data.email);
+  formData.append("phone", data.phone);
+  formData.append("password", data.password);
+  formData.append("gender", data.gender);
+  formData.append("hobbies", hobbiesString);
+  formData.append("image", image);
+  
+  Axios.post("http://localhost:3000/register", formData)
+    .then((response) => {
+      console.log(response);
+      if (response.data.message === "User registered successfully") {
+        window.location.href = "/login";
+      } else {
+        setErrorMessage("Error registering user");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      setErrorMessage("An error occurred while registering user");
+    });
+};
 
-
-
-}
   return (
     <Fragment>
       <div className="reg">
+      <form encType="multipart/form-data" method='POST'  onSubmit={register}>
     <div className="container1">
    <div className="title">Registration 2/2</div>
    <div className="content">
@@ -123,14 +128,20 @@ Axios.post("http://localhost:3000/register",{
       <span className="checkmark"></span>
       <span className="label-text">Humour</span>
     </label>
+
     </div>
+    <div className='upload'> 
+    <input type="file" name="image" onChange={handleImageChange} />
+</div>
     </div>
        </div>
        <div className="button">
-       <button onClick={register} className='Loginbutton'>register</button>
+       <button type='submit' className='Loginbutton'>register</button>
        </div>
    </div>
  </div>
+ </form>
+
  </div></Fragment>
   )
 }

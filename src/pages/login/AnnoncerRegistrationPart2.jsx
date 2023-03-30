@@ -44,7 +44,7 @@ Axios.post("http://localhost:3000/registerAnnoncer",{
 }).then((response)=>{
   console.log(response);
   if (response.data.message === "User registered successfully") {
-    window.location.href = "/";
+    window.location.href = "/login";
   } else {
     setErrorMessage("Error registering user");
   }

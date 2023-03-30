@@ -12,7 +12,7 @@ function EditorRegistrationPart1() {
     email: '',
     phone: '',
     password: '',
-    gender: ''
+    gender: '',
   });
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,7 +31,7 @@ function EditorRegistrationPart1() {
      <div className="container1">
     <div className="title">Registration 1/2</div>
     <div className="content">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="POST" encType="multipart/form-data">
         <div className="user-details">
           <div className="input-box">
             <span className="details">Full Name</span>
@@ -47,7 +47,7 @@ function EditorRegistrationPart1() {
           </div>
           <div className="input-box">
             <span className="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number"  name="phone"value={formData.phone} onChange={handleChange} required/>
+            <input type="tel" placeholder="Enter your number"  name="phone"value={formData.phone} onChange={handleChange} required/>
           </div>
           <div className="input-box">
             <span className="password">Password</span>
@@ -73,6 +73,7 @@ function EditorRegistrationPart1() {
             <span className="gender">Prefer not to say</span>
             </label>
           </div>
+
         </div>
         <div className="button">
 <input type="submit" value="Next"/>

@@ -9,20 +9,25 @@
     user-select: none;
   }
   .sort{
-    display: flex;
-    padding: 10px;
     width: 100%;
-    margin-left: 15%;
   }
-  
-  .sort2{
-   align-items: center;
-   padding-left: 25%;
+  .sort1, .sort2 {
+    display: inline-block;
+    width: 50%;
   }
+ 
   .checkbox input[type="checkbox"] {
     opacity: 0;
     width: 0;
     height: 0;
+  }
+  .upload{
+    margin-top: 10%;
+  }
+  .upload input{
+    display: flex;
+    align-items: center;
+
   }
   
   .checkmark {
