@@ -3,7 +3,7 @@ import "../../assets/css/style.css"
 import { useNavigate } from 'react-router-dom';
 
 
-function EditorRegistrationPart1(props) {
+function EditorRegistrationPart1() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({

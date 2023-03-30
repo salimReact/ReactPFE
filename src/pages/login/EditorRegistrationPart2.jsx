@@ -1,6 +1,5 @@
 import React, { Fragment,useState } from 'react'
 import '../../assets/css/checkbox.css'
-import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 
