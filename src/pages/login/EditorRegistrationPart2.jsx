@@ -55,10 +55,10 @@ const register = () => {
   Axios.post("http://localhost:3000/register", formData)
     .then((response) => {
       console.log(response);
-      if (response.data.message === "User registered successfully") {
+      if (response.data.success) {
         window.location.href = "/login";
       } else {
-        setErrorMessage("Error registering user");
+        window.location.href = "/login";
       }
     })
     .catch((error) => {

@@ -24,7 +24,7 @@ export default function Men() {
         <section className="section" id="products">
     <div className="container">
         <div className="row">
-          {data.map((e)=> (
+          {data.slice(0, 3).map((e)=> (
             <Men_card  key ={e.id} name={e.full_name} price={JSON.parse(e.hobbies)} img={e.image}/>
           ))}
             </div>

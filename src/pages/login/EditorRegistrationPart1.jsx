@@ -51,7 +51,7 @@ function EditorRegistrationPart1() {
           </div>
           <div className="input-box">
             <span className="password">Password</span>
-            <input type="text" placeholder="Enter your password"  name="password"value={formData.password} onChange={handleChange} required/>
+            <input type="password" placeholder="Enter your password"  name="password" value={formData.password} onChange={handleChange} required/>
           </div>
         </div>
         <div className="gender-details">
