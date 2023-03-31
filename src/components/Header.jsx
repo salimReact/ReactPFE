@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Fragment,useState  } from 'react'
 
 export default function Header() {
+  const log = sessionStorage.getItem('log');
+  console.log(log);
+ 
+
   return (
-    <div>
+    <Fragment>
         <div id="preloader" >  
     <div className="jumper" >  
     </div>
@@ -19,7 +23,6 @@ export default function Header() {
                 <li className="scroll-to-section"><a href="#top" className="active">Home</a></li>
                 <li className="scroll-to-section"><a href="#men">Men's</a></li>
                 <li className="scroll-to-section"><a href="#women">Women's</a></li>
-                <li className="#"><a href="/Login">Login</a></li>
                 <li className="submenu">
                   <a href="#">Pages</a>
                   <ul>
@@ -39,15 +42,19 @@ export default function Header() {
                   </ul>
                 </li>
                 <li className="scroll-to-section"><a href="#explore">Explore</a></li>
+                {log? ( <li className="#"><a href="/Login" onClick={() => sessionStorage.removeItem('log')}>Log out</a></li> ) : ( 
+                       <li className="#"><a href="/Login">Login</a></li>
+                       
+                       )}                
+
               </ul>  
-              {    
               <a className="menu-trigger">
                 <span>Menu</span>
-              </a> }
+              </a> 
             </nav>
           </div>
         </div>
       </div>
-    </header></div>
+    </header></Fragment>
   )
 }

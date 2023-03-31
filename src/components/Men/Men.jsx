@@ -16,7 +16,6 @@ export default function Men() {
     };
     fetchData();
   }, []);
-
   return (
     <Fragment>
        <section className="section" id="men">
@@ -25,7 +24,7 @@ export default function Men() {
     <div className="container">
         <div className="row">
           {data.slice(0, 3).map((e)=> (
-            <Men_card  key ={e.id} name={e.full_name} price={JSON.parse(e.hobbies)} img={e.image}/>
+            <Men_card  key ={e.id} name={e.full_name} hobbies={JSON.parse(e.hobbies).join(' ')} img={e.image}/>
           ))}
             </div>
             </div>

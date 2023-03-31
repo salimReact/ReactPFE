@@ -11,7 +11,7 @@ export default function Index() {
 
   return (
       <Fragment>
-        <Header/>
+        <Header />
          <Banner/>
           <Men/>
           <Women/>

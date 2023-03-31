@@ -5,6 +5,8 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const log = sessionStorage.getItem('log');
+  console.log(log);
 
   const Axios = axios.create({
     baseURL: 'http://localhost:3000/'
@@ -17,6 +19,7 @@ function Login() {
       console.log(response);
       if (response.data.message === "Login successful") {
         window.location.href = "/";
+        sessionStorage.setItem('log', true);
       } else {
         setErrorMessage("Invalid email or password");
       }
