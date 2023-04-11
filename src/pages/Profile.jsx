@@ -6,7 +6,8 @@ export default function Profile() {
   return (
     <Fragment>
         <Header/>
-        <div className="container-fluid mt--7">
+        <div className="container-fluid">
+        <div className="profile">
       <div className="row">
         <div className="col-xl-4 order-xl-2 mb-5 mb-xl-0">
           <div className="card card-profile shadow">
@@ -153,8 +154,10 @@ export default function Profile() {
             </div>
           </div>
         </div>
-    </div>
   </div>
+  </div>
+  </div>
+
         
              
         <Footer/>
