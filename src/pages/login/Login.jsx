@@ -38,7 +38,7 @@ function Login() {
         <div className="user-details">
           <div className="input-box">
             <span className="details">Email</span>
-            <input type="text" placeholder="Enter your email" required onChange={((e)=> {setEmail(e.target.value)})}/>
+            <input type="email" placeholder="Enter your email" required onChange={((e)=> {setEmail(e.target.value)})}/>
           </div>
           <div className="input-box">
             <span className="details">Password</span>

@@ -13,7 +13,7 @@ export default function Contact() {
                 <div className="col-lg-12">
                     <div className="inner-content">
                         <h2>Contact Us</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                        <span>Contact Us</span>
                     </div>
                 </div>
             </div>
