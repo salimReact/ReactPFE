@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import RateUs from './rateUs.jsx'
+import '../assets/css/rateus.css'
 
 export default function Subscribe() {
   return (
-    <div>        <div className="subscribe">
+    <Fragment> 
+      <RateUs/>
+    <div className="subscribe">
     <div className="container">
       <div className="row">
         <div className="col-lg-8">
@@ -50,6 +54,6 @@ export default function Subscribe() {
         </div>
       </div>
     </div>
-  </div></div>
+  </div></Fragment>
   )
 }

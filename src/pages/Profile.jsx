@@ -2,7 +2,23 @@ import React, { Fragment } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import '../assets/css/profile.css'
-export default function Profile() {
+import axios from 'axios';
+
+export default function Profile(props) {
+  const [data, setData] = useState([]);
+  const id = props.id;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/profile:id',{ mode: 'cors' }         );
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <Fragment>
         <Header/>
@@ -15,7 +31,7 @@ export default function Profile() {
               <div className="col-lg-3 order-lg-2">
                 <div className="card-profile-image">
                   <a href="#">
-                    <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle"/>
+                    <img src={data.image} className="rounded-circle"/>
                   </a>
                 </div>
               </div>
@@ -85,13 +101,13 @@ export default function Profile() {
                     <div className="col-lg-6">
                       <div className="form-group focused">
                         <label className="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder="Username" value="lucky.jesse"/>
+                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder="Username" value={data.username}/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group">
                         <label className="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder="jesse@example.com"/>
+                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={data.email}/>
                       </div>
                     </div>
                   </div>

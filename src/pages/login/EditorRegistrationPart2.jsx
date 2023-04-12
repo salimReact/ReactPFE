@@ -25,8 +25,6 @@ export default function EditorRegistrationPart2() {
     gender: formData.gender,
     hobbies: [],
   })
-  console.log(data);
-  console.log(image);
 
   const handleInputChange = (event) => {
     const { name, checked } = event.target;
@@ -55,17 +53,19 @@ const register = () => {
   Axios.post("http://localhost:3000/register", formData)
     .then((response) => {
       console.log(response);
-      if (response.data.success) {
+      if (response.data.message === "User registered successfully") {
         window.location.href = "/login";
       } else {
-        window.location.href = "/login";
+        setErrorMessage("Error registering user");
       }
     })
     .catch((error) => {
       console.log(error);
       setErrorMessage("An error occurred while registering user");
     });
-};
+    
+    
+      }
 
   return (
     <Fragment>

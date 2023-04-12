@@ -25,7 +25,6 @@ export default function AnnoncerRegistrationPart2() {
   const handleChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
-  console.log(data);
   const Axios = axios.create({
     baseURL: 'http://localhost:3000/'
 });
