@@ -1,24 +1,36 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useState,useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import '../assets/css/profile.css'
 import axios from 'axios';
 
-export default function Profile(props) {
+export default function Profile() {
+  const [formData, setFormData] = useState({
+    Fname: "",
+    username: '',
+    email: '',
+    phone: '',
+    password: '',
+  });
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
   const [data, setData] = useState([]);
-  const id = props.id;
+  const userId = sessionStorage.getItem('userId');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/profile:id',{ mode: 'cors' }         );
-        setData(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/profile/${userId}`, { mode: 'cors' });
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  fetchData();
+}, [userId]);
+console.log(data);
+
   return (
     <Fragment>
         <Header/>
@@ -100,28 +112,28 @@ export default function Profile(props) {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder="Username" value={data.username}/>
+                        <label className="form-control-label" htmlFor="input-username">Username</label>
+                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder="Username" onChange={handleChange} name='Fname' />
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group">
-                        <label className="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={data.email}/>
+                        <label className="form-control-label" htmlFor="input-email">Email address</label>
+                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={"data.data.email"} onChange={handleChange} name='email'/>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder="First name" value="Lucky"/>
+                        <label className="form-control-label" htmlFor="input-first-name">First name</label>
+                        <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder="First name" value="Lucky" onChange={handleChange} name='email'/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder="Last name" value="Jesse"/>
+                        <label className="form-control-label" htmlFor="input-last-name">Last name</label>
+                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder="Last name" value="Jesse" onChange={handleChange} name='email'/>
                       </div>
                     </div>
                   </div>
@@ -132,28 +144,28 @@ export default function Profile(props) {
                   <div className="row">
                     <div className="col-md-12">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" className="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text"/>
+                        <label className="form-control-label" htmlFor="input-address">Address</label>
+                        <input id="input-address" className="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text" onChange={handleChange} name='email'/>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-lg-4">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-city">City</label>
-                        <input type="text" id="input-city" className="form-control form-control-alternative" placeholder="City" value="New York"/>
+                        <label className="form-control-label" htmlFor="input-city">City</label>
+                        <input type="text" id="input-city" className="form-control form-control-alternative" placeholder="City" value="New York" onChange={handleChange} name='email'/>
                       </div>
                     </div>
                     <div className="col-lg-4">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-country">Country</label>
-                        <input type="text" id="input-country" className="form-control form-control-alternative" placeholder="Country" value="United States"/>
+                        <label className="form-control-label" htmlFor="input-country">Country</label>
+                        <input type="text" id="input-country" className="form-control form-control-alternative" placeholder="Country" value="United States" onChange={handleChange} name='email'/>
                       </div>
                     </div>
                     <div className="col-lg-4">
                       <div className="form-group">
-                        <label className="form-control-label" for="input-country">Postal code</label>
-                        <input type="number" id="input-postal-code" className="form-control form-control-alternative" placeholder="Postal code"/>
+                        <label className="form-control-label" htmlFor="input-country">Postal code</label>
+                        <input type="number" id="input-postal-code" className="form-control form-control-alternative" placeholder="Postal code" onChange={handleChange} name='email'/>
                       </div>
                     </div>
                   </div>
@@ -163,7 +175,7 @@ export default function Profile(props) {
                 <div className="pl-lg-4">
                   <div className="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" className="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                    <textarea rows="4" className="form-control form-control-alternative" value={"A beautiful Dashboard for Bootstrap 4. It is Free and Open Source."} placeholder="A few words about you ..." ></textarea>
                   </div>
                 </div>
               </form>

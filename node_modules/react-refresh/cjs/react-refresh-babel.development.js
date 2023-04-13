@@ -1,4 +1,5 @@
-/** @license React vundefined
+/**
+ * @license React
  * react-refresh-babel.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -522,11 +523,17 @@ function ReactFreshBabelPlugin (babel) {
           var node = path.node;
           var programPath;
           var insertAfterPath;
+          var modulePrefix = '';
 
           switch (path.parent.type) {
             case 'Program':
               insertAfterPath = path;
               programPath = path.parentPath;
+              break;
+
+            case 'TSModuleBlock':
+              insertAfterPath = path;
+              programPath = insertAfterPath.parentPath.parentPath;
               break;
 
             case 'ExportNamedDeclaration':
@@ -541,6 +548,23 @@ function ReactFreshBabelPlugin (babel) {
 
             default:
               return;
+          } // These types can be nested in typescript namespace
+          // We need to find the export chain
+          // Or return if it stays local
+
+
+          if (path.parent.type === 'TSModuleBlock' || path.parent.type === 'ExportNamedDeclaration') {
+            while (programPath.type !== 'Program') {
+              if (programPath.type === 'TSModuleDeclaration') {
+                if (programPath.parentPath.type !== 'Program' && programPath.parentPath.type !== 'ExportNamedDeclaration') {
+                  return;
+                }
+
+                modulePrefix = programPath.node.id.name + '$' + modulePrefix;
+              }
+
+              programPath = programPath.parentPath;
+            }
           }
 
           var id = node.id;
@@ -563,10 +587,11 @@ function ReactFreshBabelPlugin (babel) {
           }
 
           seenForRegistration.add(node); // Don't mutate the tree above this point.
-          // export function Named() {}
+
+          var innerName = modulePrefix + inferredName; // export function Named() {}
           // function Named() {}
 
-          findInnerComponents(inferredName, path, function (persistentID, targetExpr) {
+          findInnerComponents(innerName, path, function (persistentID, targetExpr) {
             var handle = createRegistration(programPath, persistentID);
             insertAfterPath.insertAfter(t.expressionStatement(t.assignmentExpression('=', handle, targetExpr)));
           });
@@ -684,11 +709,17 @@ function ReactFreshBabelPlugin (babel) {
         var node = path.node;
         var programPath;
         var insertAfterPath;
+        var modulePrefix = '';
 
         switch (path.parent.type) {
           case 'Program':
             insertAfterPath = path;
             programPath = path.parentPath;
+            break;
+
+          case 'TSModuleBlock':
+            insertAfterPath = path;
+            programPath = insertAfterPath.parentPath.parentPath;
             break;
 
           case 'ExportNamedDeclaration':
@@ -703,6 +734,23 @@ function ReactFreshBabelPlugin (babel) {
 
           default:
             return;
+        } // These types can be nested in typescript namespace
+        // We need to find the export chain
+        // Or return if it stays local
+
+
+        if (path.parent.type === 'TSModuleBlock' || path.parent.type === 'ExportNamedDeclaration') {
+          while (programPath.type !== 'Program') {
+            if (programPath.type === 'TSModuleDeclaration') {
+              if (programPath.parentPath.type !== 'Program' && programPath.parentPath.type !== 'ExportNamedDeclaration') {
+                return;
+              }
+
+              modulePrefix = programPath.node.id.name + '$' + modulePrefix;
+            }
+
+            programPath = programPath.parentPath;
+          }
         } // Make sure we're not mutating the same tree twice.
         // This can happen if another Babel plugin replaces parents.
 
@@ -721,7 +769,8 @@ function ReactFreshBabelPlugin (babel) {
 
         var declPath = declPaths[0];
         var inferredName = declPath.node.id.name;
-        findInnerComponents(inferredName, declPath, function (persistentID, targetExpr, targetPath) {
+        var innerName = modulePrefix + inferredName;
+        findInnerComponents(innerName, declPath, function (persistentID, targetExpr, targetPath) {
           if (targetPath === null) {
             // For case like:
             // export const Something = hoc(Foo)

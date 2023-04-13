@@ -19,6 +19,7 @@ function Login() {
       console.log(response);
       if (response.data.message === "Login successful") {
         window.location.href = "/";
+        sessionStorage.setItem('userId', response.data.userId);
         sessionStorage.setItem('log', true);
       } else {
         setErrorMessage("Invalid email or password");
