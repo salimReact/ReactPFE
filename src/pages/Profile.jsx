@@ -22,7 +22,7 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/profile/${userId}`, { mode: 'cors' });
-      setData(response.data);
+      setData(response.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -113,27 +113,27 @@ console.log(data);
                     <div className="col-lg-6">
                       <div className="form-group focused">
                         <label className="form-control-label" htmlFor="input-username">Username</label>
-                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder="Username" onChange={handleChange} name='Fname' />
+                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder={data.username} onChange={handleChange} name='username' />
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group">
                         <label className="form-control-label" htmlFor="input-email">Email address</label>
-                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={"data.data.email"} onChange={handleChange} name='email'/>
+                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={data.email} onChange={handleChange} name='email'/>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder="First name" value="Lucky" onChange={handleChange} name='email'/>
+                        <label className="form-control-label" htmlFor="input-first-name">full name</label>
+                        <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder={data.full_name} onChange={handleChange} name='Fname'/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder="Last name" value="Jesse" onChange={handleChange} name='email'/>
+                        <label className="form-control-label" htmlFor="input-last-name">phone number</label>
+                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={data.phone_number} onChange={handleChange} name='email'/>
                       </div>
                     </div>
                   </div>
@@ -175,7 +175,7 @@ console.log(data);
                 <div className="pl-lg-4">
                   <div className="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" className="form-control form-control-alternative" value={"A beautiful Dashboard for Bootstrap 4. It is Free and Open Source."} placeholder="A few words about you ..." ></textarea>
+                    <textarea rows="4" className="form-control form-control-alternative" value={"A beautiful Dashboard for Bootstrap 4. It is Free and Open Source."} placeholder="A few words about you ..." onChange={handleChange} name='email'></textarea>
                   </div>
                 </div>
               </form>
