@@ -30,6 +30,8 @@ useEffect(() => {
   fetchData();
 }, [userId]);
 console.log(data);
+const img = "http://localhost:3000/images/"+data.image;
+
 
   return (
     <Fragment>
@@ -43,7 +45,7 @@ console.log(data);
               <div className="col-lg-3 order-lg-2">
                 <div className="card-profile-image">
                   <a href="#">
-                    <img src={data.image} className="rounded-circle"/>
+                    <img src={img} className="rounded-circle"/>
                   </a>
                 </div>
               </div>
