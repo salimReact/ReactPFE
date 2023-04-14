@@ -13,6 +13,21 @@ export default function ChangePassword() {
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
       };
+      const [data, setData] = useState([]);
+      const userId = sessionStorage.getItem('userId');
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`http://localhost:3000/profile/${userId}`, { mode: 'cors' });
+            setData(response.data.data);
+            setFormData({
+            });
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        fetchData();
+      }, [userId]);    
       const handleSubmit = async (event) => {
         event.preventDefault();
         const requiredFields = ["password", "newPassword", "repeatnewPassword"]; // add other required fields here
@@ -34,6 +49,9 @@ export default function ChangePassword() {
         }
         window.location.reload();
       };
+      console.log(data)
+console.log(formData)
+
   return (
     <Fragment>
         <Header/>
