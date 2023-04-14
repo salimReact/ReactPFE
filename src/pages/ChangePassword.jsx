@@ -30,7 +30,7 @@ export default function ChangePassword() {
       }, [userId]);    
       const handleSubmit = async (event) => {
         event.preventDefault();
-        const requiredFields = ["password", "newPassword", "repeatnewPassword"]; // add other required fields here
+        const requiredFields = ["password", "newPassword", "repeatnewPassword"]; 
         const emptyFields = requiredFields.filter(
           (field) => !formData[field].trim()
         );
