@@ -11,6 +11,8 @@ import AnnoncerRegistrationPart2 from './pages/login/AnnoncerRegistrationPart2'
 import EditorRegistrationpart1 from './pages/login/EditorRegistrationPart1'
 import EditorRegistrationpart2 from './pages/login/EditorRegistrationPart2'
 import RegistrationChoice from './pages/login/RegistrationChoice'
+import ChangePassword from './pages/ChangePassword'
+
 
 
 
@@ -30,6 +32,8 @@ function App() {
       <Route  path="/EditorRegistrationpart1" element={<EditorRegistrationpart1/>}/>
       <Route  path="/EditorRegistrationpart2" element={<EditorRegistrationpart2/>}/>
       <Route  path="/registrationChoice" element={<RegistrationChoice/>}/>
+      <Route  path="/ChangePassword" element={<ChangePassword/>}/>
+
 
       
     </Routes>
