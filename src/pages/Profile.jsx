@@ -5,19 +5,24 @@ import '../assets/css/profile.css'
 import axios from 'axios';
 
 export default function Profile() {
+  const [passwordError, setPasswordError] = useState('');
+  const [rnpasswordError, setRnpasswordError] = useState('');
+
   const [formData, setFormData] = useState({
     Fname: "",
     username: '',
     email: '',
     phone: '',
     password: '',
+    newPassword:'',
+    repeatNewPassword:'',
   });
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   const [data, setData] = useState([]);
   const userId = sessionStorage.getItem('userId');
-
+  console.log(userId );
 useEffect(() => {
   const fetchData = async () => {
     try {
@@ -29,9 +34,35 @@ useEffect(() => {
   };
   fetchData();
 }, [userId]);
-console.log(data);
 const img = "http://localhost:3000/images/"+data.image;
 
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  if (formData.password !== data.password) {
+    setPasswordError('Old password is incorrect');
+    return;
+  }
+
+  if (formData.newPassword !== formData.repeatNewPassword) {
+    setRnpasswordError('New passwords do not match');
+    return;
+  }
+  try {
+    const response = await axios.put(`http://localhost:3000/updateUser/${userId}`, formData, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    setData(response.data.data);
+    
+ 
+    console.log('User data updated successfully');
+  } catch (error) {
+    console.log(error);
+  }
+
+};
+console.log(formData)
+console.log(data)
 
   return (
     <Fragment>
@@ -103,7 +134,7 @@ const img = "http://localhost:3000/images/"+data.image;
                   <h3 className="mb-0">My account</h3>
                 </div>
                 <div className="col-4 text-right">
-                  <a href="#!" className="btn btn-sm btn-primary">Settings</a>
+                  <button onClick={handleSubmit} className='btn btn-sm btn-primary'>Update your information</button>
                 </div>
               </div>
             </div>
@@ -135,43 +166,39 @@ const img = "http://localhost:3000/images/"+data.image;
                     <div className="col-lg-6">
                       <div className="form-group focused">
                         <label className="form-control-label" htmlFor="input-last-name">phone number</label>
-                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={data.phone_number} onChange={handleChange} name='email'/>
+                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={data.phone_number} onChange={handleChange} name='phone'/>
                       </div>
                     </div>
                   </div>
                 </div>
                 <hr className="my-4"/>
-                <h6 className="heading-small text-muted mb-4">Contact information</h6>
+                <h6 className="heading-small text-muted mb-4">Password</h6>
                 <div className="pl-lg-4">
                   <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-address">Address</label>
-                        <input id="input-address" className="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text" onChange={handleChange} name='email'/>
+                        <label className="form-control-label" htmlFor="input-Password">Old Password</label>
+                        <input type="password"  id="input-Password" className="form-control form-control-alternative" placeholder="Previous password" onChange={handleChange} name='password'/>
                       </div>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-city">City</label>
-                        <input type="text" id="input-city" className="form-control form-control-alternative" placeholder="City" value="New York" onChange={handleChange} name='email'/>
+                        <label className="form-control-label" htmlFor="input-NP">New Password</label>
+                        <input type="password" id="input-NP" className="form-control form-control-alternative" placeholder="New password"  onChange={handleChange} name='newPassword'/>
                       </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-country">Country</label>
-                        <input type="text" id="input-country" className="form-control form-control-alternative" placeholder="Country" value="United States" onChange={handleChange} name='email'/>
-                      </div>
-                    </div>
-                    <div className="col-lg-4">
-                      <div className="form-group">
-                        <label className="form-control-label" htmlFor="input-country">Postal code</label>
-                        <input type="number" id="input-postal-code" className="form-control form-control-alternative" placeholder="Postal code" onChange={handleChange} name='email'/>
+                        <label className="form-control-label" htmlFor="input-RNP">Repeat New Password</label>
+                        <input type="password" id="input-RNP" className="form-control form-control-alternative" placeholder="Repeat new password"  onChange={handleChange} name='repeatNewPassword'/>
                       </div>
                     </div>
                   </div>
                 </div>
+                {passwordError && <div>{passwordError}</div>}
+                {rnpasswordError && <div>{rnpasswordError}</div>}
                 <hr className="my-4"/>
                 <h6 className="heading-small text-muted mb-4">About me</h6>
                 <div className="pl-lg-4">
