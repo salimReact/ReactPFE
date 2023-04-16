@@ -12,6 +12,8 @@ import EditorRegistrationpart1 from './pages/login/EditorRegistrationPart1'
 import EditorRegistrationpart2 from './pages/login/EditorRegistrationPart2'
 import RegistrationChoice from './pages/login/RegistrationChoice'
 import ChangePassword from './pages/ChangePassword'
+import Timeline from './pages/timeline/Timeline'
+
 
 
 
@@ -33,9 +35,7 @@ function App() {
       <Route  path="/EditorRegistrationpart2" element={<EditorRegistrationpart2/>}/>
       <Route  path="/registrationChoice" element={<RegistrationChoice/>}/>
       <Route  path="/ChangePassword" element={<ChangePassword/>}/>
-
-
-      
+      <Route  path="/timeline" element={<Timeline/>}/>  
     </Routes>
     
     )
