@@ -39,7 +39,6 @@ useEffect(() => {
   };
   fetchData();
 }, [userId]);
-const img = "http://localhost:3000/images/"+data.image;
 
 
 
@@ -69,6 +68,8 @@ const handleSubmit = async (event) => {
   window.location.reload();
 
 };
+const img = "http://localhost:3000/images/"+data.image;
+
 console.log(data)
 console.log(formData)
 

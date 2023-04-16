@@ -13,6 +13,7 @@ function EditorRegistrationPart1() {
     phone: '',
     password: '',
     gender: '',
+    role : "1"
   });
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -15,6 +15,7 @@ export default function AnnoncerRegistrationPart2() {
     phone: formAData.phone,
     password: formAData.password,
     gender: formAData.gender,
+    role: "2",
     companyName : "",
     companyEmail : "",
     companyPhone : "",
@@ -29,12 +30,13 @@ export default function AnnoncerRegistrationPart2() {
     baseURL: 'http://localhost:3000/'
 });
   const register = () => {
-Axios.post("http://localhost:3000/registerAnnoncer",{
+Axios.post("http://localhost:3000/register",{
   Fname:data.Fname,
   email:data.email,
   phone:data.phone,
   password:data.password,
   gender:data.gender,
+  role:data.role,
   companyName:data.companyName,
   companyEmail:data.companyEmail,
   companyPhone:data.companyPhone,
@@ -42,7 +44,7 @@ Axios.post("http://localhost:3000/registerAnnoncer",{
   companyType:data.companyType,
 }).then((response)=>{
   console.log(response);
-  if (response.data.message === "User registered successfully") {
+  if (response.status === 200) {
     window.location.href = "/login";
   } else {
     setErrorMessage("Error registering user");

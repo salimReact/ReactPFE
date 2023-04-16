@@ -23,21 +23,22 @@ export default function EditorRegistrationPart2() {
     phone: formData.phone,
     password: formData.password,
     gender: formData.gender,
-    hobbies: [],
+    role: "1",
+    community_type: [],
   })
 
   const handleInputChange = (event) => {
     const { name, checked } = event.target;
     if (checked) {
-      setData({ ...data, hobbies: [...data.hobbies, name] });
+      setData({ ...data, community_type: [...data.community_type, name] });
     } else {
-      setData({ ...data, hobbies: data.hobbies.filter((hobby) => hobby !== name) });
+      setData({ ...data, community_type: data.community_type.filter((hobby) => hobby !== name) });
     }
   };
   const Axios = axios.create({
     baseURL: 'http://localhost:3000/'
 });
-const hobbiesString = JSON.stringify(data.hobbies);
+const community_typeString = JSON.stringify(data.community_type);
 
 const register = () => {
   const formData = new FormData();
@@ -47,13 +48,15 @@ const register = () => {
   formData.append("phone", data.phone);
   formData.append("password", data.password);
   formData.append("gender", data.gender);
-  formData.append("hobbies", hobbiesString);
+  formData.append("role", data.role);
+  formData.append("community_type", community_typeString);
   formData.append("image", image);
+
   
   Axios.post("http://localhost:3000/register", formData)
     .then((response) => {
       console.log(response);
-      if (response.data.message === "User registered successfully") {
+      if (response.status == 200) {
         window.location.href = "/login";
       } else {
         setErrorMessage("Error registering user");
