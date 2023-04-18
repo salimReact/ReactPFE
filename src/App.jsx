@@ -11,6 +11,8 @@ import AnnoncerRegistrationPart2 from './pages/login/AnnoncerRegistrationPart2'
 import EditorRegistrationpart1 from './pages/login/EditorRegistrationPart1'
 import EditorRegistrationpart2 from './pages/login/EditorRegistrationPart2'
 import RegistrationChoice from './pages/login/RegistrationChoice'
+import CreateCampaign from './pages/Campaign/CreateCampaign'
+import CampaignListAnnoncer from './pages/Campaign/CampaignListAnnoncer'
 import ChangePassword from './pages/ChangePassword'
 import Timeline from './pages/timeline/Timeline'
 
@@ -36,6 +38,8 @@ function App() {
       <Route  path="/registrationChoice" element={<RegistrationChoice/>}/>
       <Route  path="/ChangePassword" element={<ChangePassword/>}/>
       <Route  path="/timeline" element={<Timeline/>}/>  
+      <Route  path="/CreateCampaign" element={<CreateCampaign/>}/> 
+      <Route  path="/CampaignListAnnoncer" element={<CampaignListAnnoncer/>}/> 
     </Routes>
     
     )

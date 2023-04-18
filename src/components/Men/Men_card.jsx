@@ -1,7 +1,7 @@
 import React, {  Fragment } from 'react'
 export default function Men_card(props) {
 const name = props.name;
-const hobbies = props.hobbies;
+const community_type = props.community_type;
 const img = "http://localhost:3000/images/"+props.img;
 
 
@@ -21,7 +21,7 @@ const img = "http://localhost:3000/images/"+props.img;
                     </div>
                     <div className="down-content">
                         <h4>{name}</h4>
-                        <span>{hobbies}</span>
+                        <span>{community_type}</span>
                         <ul className="stars">
                             <li><i className="fa fa-star"></i></li>
                             <li><i className="fa fa-star"></i></li>

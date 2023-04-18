@@ -35,14 +35,12 @@
       }
   
       function fnUpdateWindow() {
-        agFlag = false;
   
         agTimelineLine.css({
-          top: agTimelineItem.first().find(agTimelinePoint).offset().top - agTimelineItem.first().offset().top,
-          bottom: agTimeline.offset().top + agTimeline.outerHeight() - agTimelineItem.last().find(agTimelinePoint).offset().top
+          top: agTimelineItem.first(),
+          bottom: agTimeline.offset()
         });
   
-        f !== agPosY && (f = agPosY, agHeight, fnUpdateProgress());
       }
   
       function fnUpdateProgress() {
