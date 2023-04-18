@@ -40,7 +40,9 @@ export default function EditorRegistrationPart2() {
 });
 const community_typeString = JSON.stringify(data.community_type);
 
-const register = () => {
+const register = (event) => {
+  event.preventDefault(); 
+
   const formData = new FormData();
   formData.append("Fname", data.Fname);
   formData.append("username", data.username);

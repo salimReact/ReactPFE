@@ -4,35 +4,41 @@ import axios from 'axios';
 
 export default function CreateCampaign() {
   const [formData, setFormData] = useState({
-    companyName: '',
+    campaignName: '',
     campaignType: '',
     campaignSector: '',
     period: '',
     description: '',
     audience: '',
     channels: '',
+    an_id: 1
+
   });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    createCampaign(formData)
-      .then((response) => {
-        console.log(response.data);
-        // handle success
-      })
-      .catch((error) => {
-        console.log(error);
-        // handle error
-      });
-  };
-
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-  const createCampaign = (data) => {
-    return axios.post('http://localhost:3000/addCampaign', data);
-  };
+  const Axios = axios.create({
+    baseURL: 'http://localhost:3000/'
+});
+const handleSubmit = (event) => {
+  event.preventDefault(); 
 
+  Axios.post("http://localhost:3000/addCampaign", formData)
+    .then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+
+      } else {
+        setErrorMessage("Error registering campaign");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      setErrorMessage("An error occurred while registering campaign");
+    });
+};
+
+console.log(formData)
   return (
     <Fragment>    
     <div className="reg">
@@ -43,7 +49,7 @@ export default function CreateCampaign() {
               <div className="user-details">
                 <div className="input-box">
                   <span className="details">Campaign Name</span>
-                  <input type="text" placeholder="Enter your campaign name" name="companyName" value={formData.companyName} onChange={handleChange} required />
+                  <input type="text" placeholder="Enter your campaign name" name="companyName" value={formData.campaignName} onChange={handleChange} required />
                 </div>
                 <div className="input-box">
                   <span className="details">Campaign Type</span>
