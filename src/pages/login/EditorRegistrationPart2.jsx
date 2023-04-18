@@ -58,7 +58,7 @@ const register = (event) => {
   Axios.post("http://localhost:3000/register", formData)
     .then((response) => {
       console.log(response);
-      if (response.data.message == "User registered successfully as announcer") {
+      if (response.status === 200) {
         window.location.href = "/login";
       } else {
         setErrorMessage("Error registering user");
