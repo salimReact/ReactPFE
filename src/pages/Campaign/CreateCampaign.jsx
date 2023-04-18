@@ -7,10 +7,10 @@ export default function CreateCampaign() {
     companyName: '',
     campaignType: '',
     campaignSector: '',
-    campaignTargetAudience: '',
-    campaignPeriod: '',
-    campaignChannels: '',
+    period: '',
     description: '',
+    audience: '',
+    channels: '',
   });
 
   const handleSubmit = (event) => {
@@ -38,7 +38,7 @@ export default function CreateCampaign() {
     <div className="reg">
     <div className="container1">
   <div className="title">Create your Campaign</div>
-          <form encType="multipart/form-data" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="content">
               <div className="user-details">
                 <div className="input-box">
@@ -55,15 +55,15 @@ export default function CreateCampaign() {
                 </div>
                 <div className="input-box">
                   <span className="details">Campaign Target audience</span>
-                  <input type="text" placeholder="Enter your campaign target audience" name="campaignTargetAudience" value={formData.campaignTargetAudience} onChange={handleChange} required />
+                  <input type="text" placeholder="Enter your campaign target audience" name="audience" value={formData.audience} onChange={handleChange} required />
                 </div>
                 <div className="input-box">
                   <span className="details">Campaign Period</span>
-                  <input type="text" placeholder="Enter your campaign period" name="campaignPeriod" value={formData.campaignPeriod} onChange={handleChange} required />
+                  <input type="text" placeholder="Enter your campaign period" name="period" value={formData.period} onChange={handleChange} required />
                 </div>
                 <div className="input-box">
                   <span className="details">Channels</span>
-                  <input type="text" placeholder="Enter your campaign channels" name="campaignChannels" value={formData.campaignChannels} onChange={handleChange} required />
+                  <input type="text" placeholder="Enter your campaign channels" name="channels" value={formData.channels} onChange={handleChange} required />
                 </div>
                 <div className="input-box">
                   <span className="details">Campaign Description</span>
@@ -78,6 +78,7 @@ export default function CreateCampaign() {
 
  </div>
  
- </div></Fragment>
+ </div>
+ </Fragment>
   )
 }
