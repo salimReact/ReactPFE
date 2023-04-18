@@ -20,7 +20,7 @@ export default function Profile() {
   };
   const [data, setData] = useState([]);
   const userId = sessionStorage.getItem('userId');
-  console.log(userId );
+  console.log(userId);
 useEffect(() => {
   const fetchData = async () => {
     try {

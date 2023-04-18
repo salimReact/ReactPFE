@@ -19,8 +19,20 @@ function Login() {
       console.log(response);
       if (response.data.message === "Login successful") {
         sessionStorage.setItem('userId', response.data.userId);
+          axios.get(`http://localhost:3000/profile/${response.data.userId}`)
+            .then((response) => {
+              const userData = response.data.data;
+              const ed_id = userData.ed_id;
+              const an_id = userData.an_id;
+              sessionStorage.setItem('ed_id', ed_id);
+              sessionStorage.setItem('an_id', an_id);
+              sessionStorage.setItem('log', true);
+              window.location.href = "/";
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         sessionStorage.setItem('log', true);
-        window.location.href = "/";
       } else {
         setErrorMessage("Invalid email or password");
       }
