@@ -22,7 +22,7 @@ export default function EditorsCard(props) {
             <img src={img} alt=""
             />
         </div>
-        <div className="down-content">
+        <div className="down-content"> 
             <h4>{Edata.full_name}</h4>
             <span>{community_type}</span>
             <ul className="stars">
