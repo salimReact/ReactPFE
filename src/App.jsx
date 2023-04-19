@@ -3,6 +3,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Index from './pages/Index'
 import Editors from './pages/Editors/Editors'
+import Editor from './pages/Editors/Editor'
 import Profile from './pages/Profile'
 import Login from './pages/login/Login'
 import ForgetPassword from './pages/login/ForgetPassword'
@@ -29,6 +30,7 @@ function App() {
       <Route  path="/contact" element={<Contact/>}/>
       <Route  path="/profile" element={<Profile/>}/>
       <Route  path="/Editors" element={<Editors/>}/>
+      <Route  path="/Editor" element={<Editor/>}/>
       <Route  path="/login" element={<Login/>}/>
       <Route  path="/ForgetPassword" element={<ForgetPassword/>}/>
       <Route  path="/AnnoncerRegistrationPart1" element={<AnnoncerRegistrationPart1/>}/>

@@ -1580,6 +1580,10 @@ Products Page
 #products .item .thumb img {
   width: 100%;
   overflow: hidden;
+  height: 100%;
+  object-fit: cover;
+  width: 600px;
+  height: 450px;
 }
 
 #products .item .down-content {

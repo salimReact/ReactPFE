@@ -25,6 +25,21 @@ export default function CampaignListPublic() {
   return (
     <Fragment>
       <Header />
+
+
+      <div className="page-heading" id="top">
+    <div className="container">
+        <div className="row">
+            <div className="col-lg-12">
+                <div className="inner-content">
+                    <h2>Your Campaigns</h2>
+                    <span>Check out your campaigns </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
       <div className="containerCampaign">
       {campaigns
   .filter((campaign) => campaign.an_id == announcer)

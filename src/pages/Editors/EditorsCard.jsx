@@ -14,13 +14,10 @@ export default function EditorsCard(props) {
         <div className="thumb">
             <div className="hover-content">
                 <ul>
-                    <li><a href="single-product.html"><i className="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i className="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="/Editor"><i className="fa fa-eye"></i></a></li>
                 </ul>
             </div>
-            <img src={img} alt=""
-            />
+            <img src={img} alt=""/>
         </div>
         <div className="down-content"> 
             <h4>{Edata.full_name}</h4>
