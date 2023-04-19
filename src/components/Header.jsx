@@ -2,8 +2,8 @@ import React, { Fragment,useState  } from 'react'
 
 export default function Header() {
   const log = sessionStorage.getItem('log');
-  console.log(log);
- 
+  const role = sessionStorage.getItem('role');
+
 
   return (
     <Fragment>
@@ -21,13 +21,26 @@ export default function Header() {
               </a>
               <ul className="nav">
                 <li className="submenu">
-                  <a href="#">Pages</a>
-                  <ul>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/influencers">influencers</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                  </ul>
+                <a href="#">Pages</a>
+                    {role == 2 ? (
+                      <ul>
+                        <li><a href="/CampaignListAnnoncer">yourCampaigns</a></li>
+                        <li><a href="/CreateCampaign">Create Campaigns</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                      </ul>
+                    ) : role == 1 ? (
+                      <ul>
+                        <li><a href="/yourOffers">yourOffers</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                      </ul>
+                    ) : (
+                      <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/Editors">Editors</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                      </ul>
+                    )}
                 </li>
                 <li className="submenu">
                   <a href="#">Features</a>

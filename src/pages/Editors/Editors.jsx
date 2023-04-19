@@ -1,11 +1,12 @@
-import React ,{Fragment, useState}from 'react'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import InfluencersCard from './InfluencersCard'
-import '../assets/css/checkbox.css'
+import React ,{Fragment, useState , useEffect}from 'react'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import EditorsCard from './EditorsCard'
+import '../../assets/css/checkbox.css'
+import axios from 'axios'
 
 
-export default function Product() {
+export default function Editors() {
     const [filterValue, setFilterValue] = useState('');
     const [applyFilter, setApplyFilter] = useState(false);
   
@@ -13,18 +14,36 @@ export default function Product() {
       setApplyFilter(event.target.checked);
     };
     const handleFilterChange = (event) => {
-        console.log(event.target.value); // Debugging
+        console.log(event.target.value); 
         setFilterValue(event.target.value);
       };
   
-    const data = [
-      { id: 1, name: 'gaming' },
-      { id: 2, name: 'sport' },
-      { id: 3, name: 'food' },
-    ];
-  
-    const filteredData = data.filter((item) =>
-      item.name.toLowerCase().includes(filterValue.toLowerCase())
+      
+      const [data, setData] = useState([]);
+      const [newData, setNewData] = useState([]);
+      
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:3000/data', { mode: 'cors' });
+            setData(response.data);
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        fetchData();
+      }, []);
+      
+      useEffect(() => {
+        const filtered = data.filter((item) => item.role == "1");
+        setNewData(filtered);
+      }, [data])
+      console.log(data);
+
+
+      
+      const filteredData = newData.filter((item) =>
+      item.community_type.toLowerCase().includes(filterValue.toLowerCase())
     );
   
   return (
@@ -70,9 +89,9 @@ export default function Product() {
     <div className="container">
         <div className="row">
         {applyFilter
-          ? filteredData.map((item) =>  <InfluencersCard key={item.id} name={item.name}/>
+          ? filteredData.map((item) =>  <EditorsCard key={item.id} Edata={item}/>
          )
-          : data.map((item) => <InfluencersCard key={item.id} name={item.name}/>
+          : newData.map((item) => <EditorsCard key={item.id} Edata={item}/>
           )}
         </div>
     </div>

@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Index from './pages/Index'
-import Influencers from './pages/Influencers'
+import Editors from './pages/Editors/Editors'
 import Profile from './pages/Profile'
 import Login from './pages/login/Login'
 import ForgetPassword from './pages/login/ForgetPassword'
@@ -28,7 +28,7 @@ function App() {
       <Route  path="/about" element={<About/>}/>
       <Route  path="/contact" element={<Contact/>}/>
       <Route  path="/profile" element={<Profile/>}/>
-      <Route  path="/influencers" element={<Influencers/>}/>
+      <Route  path="/Editors" element={<Editors/>}/>
       <Route  path="/login" element={<Login/>}/>
       <Route  path="/ForgetPassword" element={<ForgetPassword/>}/>
       <Route  path="/AnnoncerRegistrationPart1" element={<AnnoncerRegistrationPart1/>}/>

@@ -24,8 +24,10 @@ function Login() {
               const userData = response.data.data;
               const ed_id = userData.ed_id;
               const an_id = userData.an_id;
+              const role = userData.role;
               sessionStorage.setItem('ed_id', ed_id);
               sessionStorage.setItem('an_id', an_id);
+              sessionStorage.setItem('role', role);
               sessionStorage.setItem('log', true);
               window.location.href = "/";
             })
