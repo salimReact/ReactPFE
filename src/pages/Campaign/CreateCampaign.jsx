@@ -27,7 +27,8 @@ const handleSubmit = (event) => {
     .then((response) => {
       console.log(response);
       if (response.status === 200) {
-
+        const campaignId = response.data.insertId;
+        window.location.href = `/Editors?campaignId=${campaignId}`;
       } else {
         setErrorMessage("Error registering campaign");
       }
@@ -49,7 +50,7 @@ console.log(formData)
               <div className="user-details">
                 <div className="input-box">
                   <span className="details">Campaign Name</span>
-                  <input type="text" placeholder="Enter your campaign name" name="companyName" value={formData.campaignName} onChange={handleChange} required />
+                  <input type="text" placeholder="Enter your campaign name" name="campaignName" value={formData.campaignName} onChange={handleChange} required />
                 </div>
                 <div className="input-box">
                   <span className="details">Campaign Type</span>

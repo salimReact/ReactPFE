@@ -7,6 +7,10 @@ import axios from 'axios'
 
 
 export default function Editors() {
+  const queryParams = new URLSearchParams(window.location.search);
+  const campaignId = queryParams.get('campaignId');
+  console.log(campaignId)
+
     const [filterValue, setFilterValue] = useState('');
     const [applyFilter, setApplyFilter] = useState(false);
   
@@ -89,9 +93,9 @@ export default function Editors() {
     <div className="container">
         <div className="row">
         {applyFilter
-          ? filteredData.map((item) =>  <EditorsCard key={item.id} Edata={item}/>
+          ? filteredData.map((item) =>  <EditorsCard key={item.id} Edata={item} campaignId={campaignId}/>
          )
-          : newData.map((item) => <EditorsCard key={item.id} Edata={item}/>
+          : newData.map((item) => <EditorsCard key={item.id} Edata={item} campaignId={campaignId}/>
           )}
         </div>
     </div>

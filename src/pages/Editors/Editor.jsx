@@ -3,75 +3,31 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import '../../assets/css/profile.css'
 import axios from 'axios';
+import { useLocation } from "react-router-dom";
+
 
 export default function Editors() {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get("id");
 
 
-  const [formData, setFormData] = useState({
-    Fname: "",
-    username: "",
-    email: "",
-    phone: "",
-    aboutme :"",
-  });
-  
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
   const [data, setData] = useState([]);
-  const userId = sessionStorage.getItem('userId');
-  console.log(userId);
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/profile/${userId}`, { mode: 'cors' });
+      const response = await axios.get(`http://localhost:3000/profile/${id}`, { mode: 'cors' });
       setData(response.data.data);
-      setFormData({
-        Fname: response.data.data.full_name,
-        username: response.data.data.username,
-        email: response.data.data.email,
-        phone: response.data.data.phone_number,
-        aboutme: response.data.data.aboutMe
-      });
     } catch (error) {
       console.log(error);
     }
   };
   fetchData();
-}, [userId]);
+}, [id]);
 
 
 
-const handleSubmit = async (event) => {
-  
-  event.preventDefault();
-  const requiredFields = ["Fname", "username", "email"]; // add other required fields here
-  const emptyFields = requiredFields.filter(
-    (field) => !formData[field].trim()
-  );
-  if (emptyFields.length > 0) {
-    alert(`Please fill in the following fields: ${emptyFields.join(", ")}`);
-    return;
-  }
-  try {
-    const response = await axios.put(`http://localhost:3000/updateUser/${userId}`, formData, {
-      headers: { 'Content-Type': 'application/json' },
-    });
-    setData(response.data.data);
-    
- 
-    console.log('User data updated successfully');
-  } catch (error) {
-    console.log(error);
-  }
-  
-  window.location.reload();
-
-};
 const img = "http://localhost:3000/images/"+data.image;
-
-console.log(data)
-console.log(formData)
 
 
   return (
@@ -93,7 +49,6 @@ console.log(formData)
             </div>
             <div className="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
               <div className="d-flex justify-content-between">
-                <a href="/ChangePassword" className="btn btn-sm btn-default float-right">Change Password</a>
               </div>
             </div>
             <div className="card-body pt-0 pt-md-4">
@@ -117,20 +72,16 @@ console.log(formData)
               </div>
               <div className="text-center">
                 <h3>
-                  Jessica Jones<span className="font-weight-light">, 27</span>
+                  {data.full_name}<span className="font-weight-light">, {data.age}</span>
                 </h3>
                 <div className="h5 font-weight-300">
-                  <i className="ni location_pin mr-2"></i>Bucharest, Romania
+                  <i className="ni location_pin mr-2"></i>Tunisia
                 </div>
                 <div className="h5 mt-4">
-                  <i className="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-                </div>
-                <div>
-                  <i className="ni education_hat mr-2"></i>University of Computer Science
+                  <i className="ni business_briefcase-24 mr-2"></i>{data.platforms}
                 </div>
                 <hr className="my-4"/>
-                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
-                <a href="#">Show more</a>
+                <p>{data.aboutMe}</p>
               </div>
             </div>
           </div>
@@ -140,10 +91,7 @@ console.log(formData)
             <div className="card-header bg-white border-0">
               <div className="row align-items-center">
                 <div className="col-8">
-                  <h3 className="mb-0">My account</h3>
-                </div>
-                <div className="col-4 text-right">
-                  <button onClick={handleSubmit} className='btn btn-sm btn-primary'>Update your information</button>
+                  <h3 className="mb-0">{data.full_name} account</h3>
                 </div>
               </div>
             </div>
@@ -155,27 +103,27 @@ console.log(formData)
                     <div className="col-lg-6">
                       <div className="form-group focused">
                         <label className="form-control-label" htmlFor="input-username">Username</label>
-                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder={data.username} onChange={handleChange} name='username' required />
+                        <input type="text" id="input-username" className="form-control form-control-alternative" placeholder={data.username} readOnly name='username' required />
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group">
                         <label className="form-control-label" htmlFor="input-email">Email address</label>
-                        <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={data.email} onChange={handleChange} name='email' required/>
+                        <input type="email" id="input-email" className="form-control form-control-alternative" value={data.email} readOnly name='email' required/>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-first-name">full name</label>
-                        <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder={data.full_name} onChange={handleChange} name='Fname' required/>
+                        <label className="form-control-label" htmlFor="input-first-name">Platforms</label>
+                        <input type="text" id="input-first-name" className="form-control form-control-alternative" value={data.platforms} readOnly name='Fname' required/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group focused">
-                        <label className="form-control-label" htmlFor="input-last-name">phone number</label>
-                        <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={data.phone_number} onChange={handleChange} name='phone' required/>
+                        <label className="form-control-label" htmlFor="input-last-name">Total Followers</label>
+                        <input type="text" id="input-last-name" className="form-control form-control-alternative" value={data.followers} readOnly name='followers' required/>
                       </div>
                     </div>
                   </div>
@@ -185,7 +133,7 @@ console.log(formData)
                 <div className="pl-lg-4">
                   <div className="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" className="form-control form-control-alternative" placeholder={data.aboutMe} onChange={handleChange} name='aboutme' required></textarea>
+                    <textarea rows="4" className="form-control form-control-alternative" placeholder={data.aboutMe} readOnly name='aboutme' required></textarea>
                   </div>
                 </div>
               </form>
