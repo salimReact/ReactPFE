@@ -40,7 +40,7 @@ export default function EditorsCard(props) {
                     <a>
                       <i className={`fa ${buttonClicked ? 'fa-check' : 'fa-plus'}`}></i></a>
                     </button>
-                  </li>
+                  </li> 
                 )}
               </ul>
             </div>
