@@ -16,6 +16,7 @@ import CreateCampaign from './pages/Campaign/CreateCampaign'
 import CampaignListAnnoncer from './pages/Campaign/CampaignListAnnoncer'
 import ChangePassword from './pages/ChangePassword'
 import Timeline from './pages/timeline/Timeline'
+import Offers from './pages/Campaign/Offers'
 
 
 
@@ -42,6 +43,8 @@ function App() {
       <Route  path="/timeline" element={<Timeline/>}/>  
       <Route  path="/CreateCampaign" element={<CreateCampaign/>}/> 
       <Route  path="/CampaignListAnnoncer" element={<CampaignListAnnoncer/>}/> 
+      <Route  path="/YourOffers" element={<Offers/>}/> 
+
     </Routes>
     
     )

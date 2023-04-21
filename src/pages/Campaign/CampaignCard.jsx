@@ -1,11 +1,33 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useState,useEffect} from 'react'
 import '../../assets/css/Card.scss'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+
 
 export default function CampaignCard( { campaign }) {
+  const role = sessionStorage.getItem('role');
+
   const dataToSend = {
     campaignName: campaign.id_list,
   }
+ const [Andata, setAnData] = useState([]);
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get('http://localhost:3000/data',{ mode: 'cors' }         );
+          setAnData(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchData();
+    }, []);
+    const announcers = Andata.filter(item => item.an_id === campaign.an_id);
+    const announcerNames = announcers.map(item => item.full_name);
+    console.log(announcerNames);
+console.log(announcers);
+    
+
   return (
     <Fragment>
      
@@ -27,8 +49,10 @@ export default function CampaignCard( { campaign }) {
         </div>
         <div className="px-6 py-4">
          
-           <span>{campaign.editorsCount} Editors wants to work with u</span>
-
+        {role === 1
+  ? <span>{campaign.editorsCount} Editors want to work with you</span>
+  : <span>{announcerNames} want to work with you</span>
+}
         </div>
       
         <button className='Loginbutton w-75'> <Link  to={{pathname: '/next-page', state: { data: dataToSend }}}>Check them out</Link></button>
