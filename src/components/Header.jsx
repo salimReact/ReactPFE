@@ -27,17 +27,18 @@ export default function Header() {
                         <li><a href="/CampaignListAnnoncer">yourCampaigns</a></li>
                         <li><a href="/CreateCampaign">Create Campaigns</a></li>
                         <li><a href="/profile">Profile</a></li>
+                        <li><a href="/Editors">Editors</a></li>
                       </ul>
                     ) : role == 1 ? (
                       <ul>
                         <li><a href="/yourOffers">yourOffers</a></li>
+                        <li><a href="/Editors">Editors</a></li>
                         <li><a href="/profile">Profile</a></li>
                       </ul>
                     ) : (
                       <ul>
                         <li><a href="/about">About Us</a></li>
                         <li><a href="/Editors">Editors</a></li>
-                        <li><a href="/profile">Profile</a></li>
                         <li><a href="/contact">Contact Us</a></li>
                       </ul>
                     )}

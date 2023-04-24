@@ -94,12 +94,13 @@ console.log(formData)
   return (
     <Fragment>
         <Header/>
-        <div className="profile">
+        <div className="profile bg-white">
+        <div className="d-flex justify-content-center">
 
         <div className="col-xl-8 order-xl-1">
           <div className="card bg-secondary shadow">
             <div className="card-header bg-white border-0">
-              <div className="row align-items-center">
+              <div className="d-flex justify-content-center">
                 <div className="col-8">
                   <h3 className="mb-0">My account</h3>
                 </div>
@@ -140,7 +141,8 @@ console.log(formData)
             </div>
             </div>
             </div>
-            </div> 
+            </div></div> 
+
 
 
         <Footer/>

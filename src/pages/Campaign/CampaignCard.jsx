@@ -1,13 +1,13 @@
 import React, { Fragment , useState,useEffect} from 'react'
 import '../../assets/css/Card.scss'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 
 export default function CampaignCard( { campaign }) {
   const role = sessionStorage.getItem('role');
 
-  const dataToSend = {
+  const id_list = {
     campaignName: campaign.id_list,
   }
  const [Andata, setAnData] = useState([]);
@@ -25,8 +25,10 @@ export default function CampaignCard( { campaign }) {
     const announcers = Andata.filter(item => item.an_id === campaign.an_id);
     const announcerNames = announcers.map(item => item.full_name);
     console.log(announcerNames);
-console.log(announcers);
-    
+const navigate = useNavigate();
+const toDevis=()=>{
+  navigate('/CreateDevis',{state:{ data: announcers }});
+    }
 
   return (
     <Fragment>
@@ -55,8 +57,19 @@ console.log(announcers);
 }
         </div>
       
-        <button className='Loginbutton w-75'> <Link  to={{pathname: '/next-page', state: { data: dataToSend }}}>Check them out</Link></button>
+        <div id='button-container'>
+      {role == 1
+        ? <button className='Loginbutton w-75' onClick={toDevis}>Create Devis</button>
 
+        : role == 2
+          ? <button className='Loginbutton w-75'>
+              <Link to={{ pathname: '/Editor', state: { data: id_list } }}>
+                Check them out
+              </Link>
+            </button>
+          : null
+      }
+    </div>
       </div>
       
 </div>
