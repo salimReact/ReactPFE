@@ -10,6 +10,7 @@ export default function CampaignCard( { campaign }) {
   const id_list = {
     campaignName: campaign.id_list,
   }
+
  const [Andata, setAnData] = useState([]);
     useEffect(() => {
       const fetchData = async () => {
@@ -27,7 +28,7 @@ export default function CampaignCard( { campaign }) {
     console.log(announcerNames);
 const navigate = useNavigate();
 const toDevis=()=>{
-  navigate('/CreateDevis',{state:{ data: announcers }});
+  navigate('/CreateDevis',{state:{ data: campaign }});
     }
 
   return (

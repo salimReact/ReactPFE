@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ChangePassword() {
   const [passwordError, setPasswordError] = useState('');
   const [rnpasswordError, setRnpasswordError] = useState('');
+  const userId = sessionStorage.getItem('userId');
   const [formData, setFormData] = useState({
     password: '',
     newPassword: '',
@@ -18,7 +19,6 @@ export default function ChangePassword() {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   const [data, setData] = useState([]);
-  const userId = sessionStorage.getItem('userId');
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -45,11 +45,9 @@ export default function ChangePassword() {
       return;
     }
     try {
-      // Check current password
       const { password } = formData;
       await checkPassword(password);
   
-      // If current password is correct, update password
       const { newPassword, repeatNewPassword } = formData;
       if (newPassword !== repeatNewPassword) {
         setRnpasswordError('Passwords do not match');
