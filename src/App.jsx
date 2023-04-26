@@ -3,9 +3,12 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Index from './pages/Index'
 import Editors from './pages/Editors/Editors'
+import CampEditors from './pages/Editors/CampEditors'
 import Editor from './pages/Editors/Editor'
 import Profile from './pages/Profile'
 import Login from './pages/login/Login'
+import Contract from './pages/Campaign/Contract'
+import YourContract from './pages/Campaign/YourContract'
 import ForgetPassword from './pages/login/ForgetPassword'
 import AnnoncerRegistrationPart1 from './pages/login/AnnoncerRegistrationPart1'
 import AnnoncerRegistrationPart2 from './pages/login/AnnoncerRegistrationPart2'
@@ -32,7 +35,10 @@ function App() {
       <Route  path="/contact" element={<Contact/>}/>
       <Route  path="/profile" element={<Profile/>}/>
       <Route  path="/Editors" element={<Editors/>}/>
+      <Route  path="/CampEditors" element={<CampEditors/>}/>
       <Route  path="/Editor" element={<Editor/>}/>
+      <Route  path="/Contract" element={<Contract/>}/>
+      <Route  path="/YourContract" element={<YourContract/>}/>
       <Route  path="/login" element={<Login/>}/>
       <Route  path="/ForgetPassword" element={<ForgetPassword/>}/>
       <Route  path="/AnnoncerRegistrationPart1" element={<AnnoncerRegistrationPart1/>}/>
@@ -46,7 +52,7 @@ function App() {
       <Route  path="/CampaignListAnnoncer" element={<CampaignListAnnoncer/>}/> 
       <Route  path="/YourOffers" element={<Offers/>}/> 
       <Route  path="/CreateDevis" element={<CreateDevis/>}/> 
-
+      
     </Routes>
     
     )

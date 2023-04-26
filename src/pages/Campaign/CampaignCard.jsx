@@ -7,9 +7,6 @@ import axios from 'axios';
 export default function CampaignCard( { campaign }) {
   const role = sessionStorage.getItem('role');
 
-  const id_list = {
-    campaignName: campaign.id_list,
-  }
 
  const [Andata, setAnData] = useState([]);
     useEffect(() => {
@@ -25,11 +22,20 @@ export default function CampaignCard( { campaign }) {
     }, []);
     const announcers = Andata.filter(item => item.an_id === campaign.an_id);
     const announcerNames = announcers.map(item => item.full_name);
-    console.log(announcerNames);
+    const idlist = campaign.id_list.split(',')
+
+    const editors = idlist.map((e)=>Andata.filter(item => item.ed_id == e))
+    const editor = editors.map((e)=>e[0])
+
+
 const navigate = useNavigate();
 const toDevis=()=>{
   navigate('/CreateDevis',{state:{ data: campaign }});
     }
+    const toEditor=()=>{
+      navigate('/CampEditors',{state:{ data: editor }});
+        }
+
 
   return (
     <Fragment>
@@ -52,10 +58,11 @@ const toDevis=()=>{
         </div>
         <div className="px-6 py-4">
          
-        {role === 1
-  ? <span>{campaign.editorsCount} Editors want to work with you</span>
-  : <span>{announcerNames} want to work with you</span>
-}
+        {role == 2
+          ? <span>{campaign.editorsCount} Editors want to work with you</span>
+          : role == 1 ? <span>{announcerNames} want to work with you</span>
+          : null
+        }
         </div>
       
         <div id='button-container'>
@@ -63,11 +70,8 @@ const toDevis=()=>{
         ? <button className='Loginbutton w-75' onClick={toDevis}>Create Devis</button>
 
         : role == 2
-          ? <button className='Loginbutton w-75'>
-              <Link to={{ pathname: '/Editor', state: { data: id_list } }}>
-                Check them out
-              </Link>
-            </button>
+          ? 
+            <button className='Loginbutton w-75' onClick={toEditor}>Check them out</button>
           : null
       }
     </div>

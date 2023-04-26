@@ -8,24 +8,23 @@ import { useLocation } from "react-router-dom";
 
 export default function Editors() {
     const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const id = searchParams.get("id");
-
+    const edid = location.state.data
+    console.log(edid)
 
   const [data, setData] = useState([]);
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/profile/${id}`, { mode: 'cors' });
+      const response = await axios.get(`http://localhost:3000/profile/${edid}`, { mode: 'cors' });
       setData(response.data.data);
     } catch (error) {
       console.log(error);
     }
   };
   fetchData();
-}, [id]);
+}, [edid]);
 
-
+console.log(data)
 
 const img = "http://localhost:3000/images/"+data.image;
 
