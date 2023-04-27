@@ -18,6 +18,7 @@ import RegistrationChoice from './pages/login/RegistrationChoice'
 import CreateCampaign from './pages/Campaign/CreateCampaign'
 import CampaignListAnnoncer from './pages/Campaign/CampaignListAnnoncer'
 import CreateDevis from './pages/Campaign/CreateDevis'
+import GetDevis from './pages/Campaign/GetDevis'
 import ChangePassword from './pages/ChangePassword'
 import Timeline from './pages/timeline/Timeline'
 import Offers from './pages/Campaign/Offers'
@@ -52,6 +53,7 @@ function App() {
       <Route  path="/CampaignListAnnoncer" element={<CampaignListAnnoncer/>}/> 
       <Route  path="/YourOffers" element={<Offers/>}/> 
       <Route  path="/CreateDevis" element={<CreateDevis/>}/> 
+      <Route  path="/GetDevis" element={<GetDevis/>}/> 
       
     </Routes>
     

@@ -31,6 +31,10 @@ export default function EditorsCard(props) {
   const toContract=()=>{
     navigate('/Contract',{state:{ data: Edata }});
     }
+  const toDevis=()=>{
+      navigate('/GetDevis',{state:{ data: Edata }});
+      }
+      
     
 
   return (
@@ -46,7 +50,10 @@ export default function EditorsCard(props) {
                   </a>
                 </li>
                 {contract === "true" ? (
+                    <>
                     <li><a onClick={toContract}><i className={`fa fa-plus`}></i></a></li>
+                    <li><a onClick={toDevis}><i className={`fa  fa-info`}></i></a></li>
+                    </>
                 ) : (
                 role == 2 && (
                   <li>
