@@ -7,24 +7,51 @@ import {useLocation,useNavigate } from 'react-router-dom';
 
 
 export default function GetDevis() {
+    const navigate = useNavigate();
     const location = useLocation();
-    const Edata = location.state.data
+    const { Edata, campaign } = location.state;
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
           try {
             const response = await axios.get('http://localhost:3000/getDevis', { mode: 'cors' });
-            setData(response.data);
+            let filteredData = response.data;
+             filteredData = filteredData.filter(item => item.devCampaign == campaign.idcampaign);
+            setData(filteredData[0]);
           } catch (error) {
             console.log(error);
           }
         };
         fetchData();
       }, []);
-      const filteredData = data.filter(item => item.devEd == Edata.id);
-console.log(filteredData)
-  return (
+      
+      const fData = data;
+
+      const AccDevis = async () => {
+        try {
+            const response = await axios.put(`http://localhost:3000/updateDevisStatus/${fData.idDevis}`, {
+                status: 'Accepted'
+            });
+            console.log(response.data); 
+        } catch (error) {
+            console.error(`Error updating contract status: ${error}`);
+        }
+        navigate('/CampaignListAnnoncer');
+
+    };
+    const refDevis = async () => {
+      try {
+          const response = await axios.put(`http://localhost:3000/updateDevisStatus/${fData.idDevis}`, {
+              status: 'Refused'
+          });
+          console.log(response.data); 
+      } catch (error) {
+          console.error(`Error updating contract status: ${error}`);
+      }
+      navigate('/CampaignListAnnoncer');
+
+  };  return (
     <Fragment> <Header/>
     <div className="container-fluid">
     <div className="profile">
@@ -37,7 +64,8 @@ console.log(filteredData)
               <h3 className="mb-0">Devis</h3>
             </div>
             <div className="col-4 text-right">
-              <button className='btn btn-sm btn-primary'>Create Devis</button>
+              <button onClick={AccDevis} className='btn btn-sm btn-primary'>Accept Devis</button>
+              <button onClick={refDevis} className='btn btn-sm btn-primary'>Refuse Devis</button>
             </div>
           </div>
         </div>
@@ -49,13 +77,13 @@ console.log(filteredData)
                 <div className="col-lg-6">
                   <div className="form-group focused">
                     <label className="form-control-label" htmlFor="input-username">Campaign Name</label>
-                    <input type="text" id="input-username" className="form-control form-control-alternative" readOnly required />
+                    <input type="text" id="input-username" className="form-control form-control-alternative" placeholder={campaign.nom_camp} readOnly required />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="form-group">
                     <label className="form-control-label" htmlFor="input-email">Deliverable</label>
-                    <input type="email" id="input-email" className="form-control form-control-alternative" placeholder="Photo , video , etc"  name='deliverable' required/>
+                    <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={fData.deliverable}  name='deliverable' required/>
                   </div>
                 </div>
               </div>
@@ -63,13 +91,13 @@ console.log(filteredData)
                 <div className="col-lg-6">
                   <div className="form-group focused">
                     <label className="form-control-label" htmlFor="input-first-name">Number of deliverable</label>
-                    <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder="3 , 4 , 5"  name='nb_deliverable' required/>
+                    <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder={fData.nb_deliverable}  name='nb_deliverable' required/>
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="form-group focused">
                     <label className="form-control-label" htmlFor="input-last-name">Price</label>
-                    <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder="in DT"  name='price' required/>
+                    <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={fData.price}  name='price' required/>
                   </div>
                 </div>
               </div>

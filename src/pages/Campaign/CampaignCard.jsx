@@ -33,8 +33,8 @@ const toDevis=()=>{
   navigate('/CreateDevis',{state:{ data: campaign }});
     }
     const toEditor=()=>{
-      navigate('/CampEditors',{state:{ data: editor }});
-        }
+      navigate('/CampEditors', { state: { editor: editor, campaign: campaign } });
+    }
 
 
   return (

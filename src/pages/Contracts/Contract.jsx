@@ -57,6 +57,9 @@ const handleSubmit = async (event) => {
   navigate('/YourContract'); 
 
 };
+const toMessages=()=>{
+  navigate('/Messages',{state:{ data: Edata.id }});
+    }
 
   return (
     <Fragment> <Header/>
@@ -72,6 +75,7 @@ const handleSubmit = async (event) => {
             </div>
             <div className="col-4 text-right">
               <button onClick={handleSubmit} className='btn btn-sm btn-primary'>Create Contract</button>
+              <button onClick={toMessages} className='btn btn-sm btn-primary'>Message</button>
             </div>
           </div>
         </div>

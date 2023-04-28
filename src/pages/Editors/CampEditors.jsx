@@ -10,8 +10,7 @@ export default function CampEditors() {
     const contract = 'true';
   
     const location = useLocation();
-    const editors = location.state.data
-    console.log(editors)
+    const { editor, campaign } = location.state;
     
   return (
 
@@ -49,7 +48,7 @@ export default function CampEditors() {
     <div className="container">
         <div className="row">
         {
-           editors.map((item) => <EditorsCard key={item.id} Edata={item} contract={contract}/>
+           editor.map((item) => <EditorsCard key={item.id} Edata={item} contract={contract} campaign={campaign}/>
           )}
         </div>
     </div>

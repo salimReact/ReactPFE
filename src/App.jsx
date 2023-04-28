@@ -22,6 +22,7 @@ import GetDevis from './pages/Campaign/GetDevis'
 import ChangePassword from './pages/ChangePassword'
 import Timeline from './pages/timeline/Timeline'
 import Offers from './pages/Campaign/Offers'
+import Messages from './pages/Contracts/Messages'
 
 
 
@@ -54,8 +55,8 @@ function App() {
       <Route  path="/YourOffers" element={<Offers/>}/> 
       <Route  path="/CreateDevis" element={<CreateDevis/>}/> 
       <Route  path="/GetDevis" element={<GetDevis/>}/> 
-      
-    </Routes>
+      <Route  path="/Messages" element={<Messages/>}/> 
+      </Routes>
     
     )
   }

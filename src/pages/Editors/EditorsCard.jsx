@@ -7,12 +7,12 @@ export default function EditorsCard(props) {
   const role = sessionStorage.getItem('role');
   const Edata = props.Edata;
   const contract=props.contract;
+  const campaign=props.campaign;
   const campaignId = props.campaignId;
   const community_type = JSON.parse(Edata.community_type).join(' ');
   const img = 'http://localhost:3000/images/' + Edata.image;
   const edid = Edata.id;
   const [buttonClicked, setButtonClicked] = useState(false);
-
   const handleButtonClick = () => {
     axios
       .post(`http://localhost:3000/addIdToCampaign/${campaignId}`, { edid })
@@ -32,7 +32,7 @@ export default function EditorsCard(props) {
     navigate('/Contract',{state:{ data: Edata }});
     }
   const toDevis=()=>{
-      navigate('/GetDevis',{state:{ data: Edata }});
+      navigate('/GetDevis',{state:{ data: Edata , campaign:campaign }});
       }
       
     
