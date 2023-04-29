@@ -5,21 +5,27 @@ import '../assets/css/profile.css'
 import axios from 'axios';
 
 export default function Profile() {
+  const role = sessionStorage.getItem('role')
+  const userId = sessionStorage.getItem('userId');
 
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(role === 2 ? {
+    Fname: "",
+    email: "",
+    phone: "",
+    aboutme: "",
+  } : {
     Fname: "",
     username: "",
     email: "",
     phone: "",
-    aboutme :"",
+    aboutme: "",
   });
   
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   const [data, setData] = useState([]);
-  const userId = sessionStorage.getItem('userId');
   console.log(userId);
 useEffect(() => {
   const fetchData = async () => {
@@ -45,7 +51,7 @@ useEffect(() => {
 const handleSubmit = async (event) => {
   
   event.preventDefault();
-  const requiredFields = ["Fname", "username", "email"]; // add other required fields here
+  const requiredFields = ["Fname", "email"]; 
   const emptyFields = requiredFields.filter(
     (field) => !formData[field].trim()
   );
@@ -54,7 +60,7 @@ const handleSubmit = async (event) => {
     return;
   }
   try {
-    const response = await axios.put(`http://localhost:3000/updateUser/${userId}`, formData, {
+    const response = await axios.put(`http://localhost:3000/updateUser/${userId}?role=${role}`, formData, {
       headers: { 'Content-Type': 'application/json' },
     });
     setData(response.data.data);
@@ -70,8 +76,7 @@ const handleSubmit = async (event) => {
 };
 const img = "http://localhost:3000/images/"+data.image;
 
-console.log(data)
-console.log(formData)
+
 
 
   return (
@@ -152,12 +157,16 @@ console.log(formData)
                 <h6 className="heading-small text-muted mb-4">User information</h6>
                 <div className="pl-lg-4">
                   <div className="row">
+                    {role == 1 ?
                     <div className="col-lg-6">
                       <div className="form-group focused">
                         <label className="form-control-label" htmlFor="input-username">Username</label>
                         <input type="text" id="input-username" className="form-control form-control-alternative" placeholder={data.username} onChange={handleChange} name='username' required />
                       </div>
                     </div>
+                    :
+                    null
+                    }
                     <div className="col-lg-6">
                       <div className="form-group">
                         <label className="form-control-label" htmlFor="input-email">Email address</label>
