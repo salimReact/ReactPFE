@@ -3,6 +3,8 @@ import axios from 'axios';
 
 
 export default function CreateCampaign() {
+  const an = sessionStorage.getItem('an_id');
+
   const [formData, setFormData] = useState({
     campaignName: '',
     campaignType: '',
@@ -11,7 +13,7 @@ export default function CreateCampaign() {
     description: '',
     audience: '',
     channels: '',
-    an_id: 1
+    an_id: an
 
   });
   const handleChange = (event) => {

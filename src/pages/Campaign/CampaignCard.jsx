@@ -22,11 +22,18 @@ export default function CampaignCard( { campaign }) {
     }, []);
     const announcers = Andata.filter(item => item.an_id === campaign.an_id);
     const announcerNames = announcers.map(item => item.full_name);
-    const idlist = campaign.id_list.split(',')
+    let editor;
 
-    const editors = idlist.map((e)=>Andata.filter(item => item.ed_id == e))
-    const editor = editors.map((e)=>e[0])
-
+    if (campaign.id_list !== null) {
+      const idlist = campaign.id_list.split(',');
+      const editors = idlist.map((e)=>Andata.filter(item => item.ed_id == e))
+      editor = editors.map((e)=>e[0])
+    } else {
+      editor = 0;
+    }
+    
+    console.log(editor);
+    
 
 const navigate = useNavigate();
 const toDevis=()=>{
@@ -69,7 +76,8 @@ const toDevis=()=>{
       {role == 1
         ? <button className='Loginbutton w-75' onClick={toDevis}>Create Devis</button>
 
-        : role == 2
+        : role == 2 &&  campaign.editorsCount !== 0 
+
           ? 
             <button className='Loginbutton w-75' onClick={toEditor}>Check them out</button>
           : null

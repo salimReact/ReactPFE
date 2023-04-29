@@ -12,6 +12,8 @@ export default function Messages() {
     const an = sessionStorage.getItem('an_id');
     const location = useLocation();
     const edid = location.state.data
+    const data = location.state.dataM
+    const reply = location.state.reply
     const [reveiverData, setReveiverData] = useState([]);
     const [senderData, setSenderData] = useState([]);
     const [formData, setFormData] = useState({
@@ -21,27 +23,34 @@ export default function Messages() {
       });
     
     
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
             const response = await axios.get('http://localhost:3000/data', { mode: 'cors' });
-            let reveiverfiltered =response.data
-            let senderfiltered =response.data
-            reveiverfiltered = reveiverfiltered.filter((item) => item.ed_id == edid);
-            senderfiltered = senderfiltered.filter((item) => item.an_id == an);
+            let reveiverfiltered = response.data
+            let senderfiltered = response.data
+            
+            if (role === 2) {
+              reveiverfiltered = reveiverfiltered.filter((item) => item.ed_id == edid);
+              senderfiltered = senderfiltered.filter((item) => item.an_id == an);
+            } else {
+              reveiverfiltered = reveiverfiltered.filter((item) => item.an_id == data.an_id);
+              senderfiltered = senderfiltered.filter((item) => item.ed_id== ed);
+            }
+      
             setReveiverData(reveiverfiltered[0]);
             setSenderData(senderfiltered[0]);
-            } catch (error) {
+          } catch (error) {
             console.log(error);
-            }
+          }
         };
-      fetchData();
-    }, []);
-    
+        fetchData();
+      }, []);
+      
 useEffect(() => {
     if (senderData && reveiverData) {
       setFormData({
-        msg: "",
+        message: "",
         sender: senderData.id,
         receiver: reveiverData.id,
       });
@@ -52,6 +61,8 @@ useEffect(() => {
       const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
       };
+      console.log(formData)
+
       const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -84,20 +95,20 @@ useEffect(() => {
         </div>
         <div className="card-body">
           <form>
-            <h6 className="heading-small text-muted mb-4">Give us your Proposition,</h6>
+            <h6 className="heading-small text-muted mb-4">Send your message,</h6>
             <div className="pl-lg-4">
               <div className="row">
                 <div className="col-lg-6">
                   <div className="form-group focused">
                     <label className="form-control-label" htmlFor="input-username">Receiver Name</label>
-                    <input type="text" id="input-username" className="form-control form-control-alternative" value={"data.full_name"} readOnly required />
+                    <input type="text" id="input-username" className="form-control form-control-alternative"value={reply === "true" ? data.full_name : reveiverData.full_name} readOnly required />
                   </div>
                 </div>
               </div>
               <div className="pl-lg-4">
                 <div className="form-group focused">
-                <label className="form-control-label" htmlFor="input-first-name">Massage</label>
-                    <textarea rows="6" className="form-control form-control-alternative" placeholder="Send Massage" onChange={handleChange} name='msg' required></textarea>
+                <label className="form-control-label" htmlFor="input-first-name">Message</label>
+                    <textarea rows="6" className="form-control form-control-alternative" placeholder="Send Massage" onChange={handleChange} name='message' required></textarea>
                   </div>
               </div>
             </div>
