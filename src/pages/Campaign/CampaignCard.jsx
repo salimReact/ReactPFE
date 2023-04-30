@@ -55,7 +55,7 @@ const toDevis=()=>{
                 <h1>{campaign.nom_camp}</h1>
             </div>
         </div>
-        <div className="px-6 py-4">
+        <div className="text px-6 py-4">
           <div className="font-bold text-xl mb-2">Campaign type : {campaign.type_camp}</div>
           <p className="text-gray-700 text-base">Campaign sector : {campaign.sector_camp}</p>
           <p className="text-gray-700 text-base">Campaign Discreption : {campaign.description}</p>
@@ -63,7 +63,7 @@ const toDevis=()=>{
           <p className="text-gray-700 text-base">Campaign audience : {campaign.audience}</p>
           <p className="text-gray-700 text-base">Campaign channels : {campaign.channels}</p>
         </div>
-        <div className="px-6 py-4">
+        <div className="nb px-6 py-4">
          
         {role == 2
           ? <span>{campaign.editorsCount} Editors want to work with you</span>
@@ -72,7 +72,7 @@ const toDevis=()=>{
         }
         </div>
       
-        <div id='button-container'>
+        <div className="d-flex justify-content-center" id='button-container'>
       {role == 1
         ? <button className='Loginbutton w-75' onClick={toDevis}>Create Devis</button>
 

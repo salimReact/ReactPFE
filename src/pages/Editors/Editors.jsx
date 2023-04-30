@@ -60,8 +60,8 @@ export default function Editors() {
         <div className="row">
             <div className="col-lg-12">
                 <div className="inner-content">
-                    <h2>Check Our Products</h2>
-                    <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                    <h2>Check Our Editors</h2>
+                    <span>Editors</span>
                 </div>
             </div>
         </div>
@@ -74,8 +74,8 @@ export default function Editors() {
         <div className="row">
             <div className="col-lg-12">
                 <div className="section-heading">
-                    <h2>Our Latest Products</h2>
-                    <span>Check out all of our products.</span>
+                    <h2>Our Latest Editors</h2>
+                    <span>Check out all of our Editors.</span>
                     <label className="checkbox">
                         <input type="checkbox" checked={applyFilter}  onChange={handleCheckboxChange}/>
                         <span className="checkmark">

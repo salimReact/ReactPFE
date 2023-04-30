@@ -35,16 +35,16 @@ export default function MessageCard(props) {
             <h1>{""}</h1>
         </div>
     </div>
-    <div className="px-6 py-4">
+    <div className="nb px-6 py-4">
       <div className="font-bold text-xl mb-2">Message time : {Date(data.timestamp)}</div>
       <p className="text-gray-700 text-base">Message: {data.message}</p>
     </div>
-    <div className="px-6 py-4">
+    <div className="nb px-6 py-4">
      
-    </div>
+    
     <span>Message sent by : {dataS.full_name}</span>
-
-    <div id='button-container'>
+    </div>
+    <div  className="nb" id='button-container'>
     <button className='Loginbutton w-75' onClick={toMessages}>Reply</button>
 
 </div>

@@ -24,8 +24,15 @@ body {
    padding: 10px;
    width: 30%;
    margin: 5px;
+ }
+ .cardCampaign h1{
 text-align: center;
  }
+ .cardCampaign .nb{
+  text-align: center;
+   }
+ .cardCampaign .text{
+margin-left: 5%;   }
  @media screen and (max-width: 1024px) {
    .cardCampaign {
      width: 45%;

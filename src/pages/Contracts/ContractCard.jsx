@@ -51,12 +51,12 @@ console.log(data)
             <h1>Contract</h1>
         </div>
     </div>
-    <div className="px-6 py-4">
+    <div className="nb px-6 py-4">
       <div className="font-bold text-xl mb-2"> Object : {contract.object}</div>
       <p className="font-bold text-gray-700 text-base"> Description : {contract.cont_disc}</p>
       <p className="font-bold text-gray-700 text-base"> Period : {contract.period}</p>
     </div>
-    <div className="px-6 py-4">
+    <div className="nb px-6 py-4">
      
     {role == 2
       ?<div><span>Contract For : {data.full_name}</span><br/>
@@ -67,7 +67,7 @@ console.log(data)
     }
     </div>
   
-    <div id='button-container'>
+    <div className="nb px-6 py-4" id='button-container'>
     {role == 1 && contract.status !== 'Accepted' &&
   <button className='Loginbutton w-75' onClick={AccCon}>Accept Contract</button>
 }
