@@ -25,7 +25,8 @@ import Offers from './pages/Campaign/Offers'
 import Messages from './pages/Messages/Messages'
 import GetMessages from './pages/Messages/GetMessages'
 import ListMessages from './pages/Messages/ListMessages'
-
+import Admin from './pages/Admin/Admin'
+import CheckUser from './pages/Admin/CheckUser'
 
 
 
@@ -60,6 +61,8 @@ function App() {
       <Route  path="/Messages" element={<Messages/>}/> 
       <Route  path="/GetMessages" element={<GetMessages/>}/> 
       <Route  path="/ListMessages" element={<ListMessages/>}/> 
+      <Route  path="/Admin" element={<Admin/>}/> 
+      <Route  path="/CheckUser" element={<CheckUser/>}/> 
 
       </Routes>
     )
