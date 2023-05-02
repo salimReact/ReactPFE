@@ -4,6 +4,7 @@ import axios from 'axios';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const isLoggedIn = sessionStorage.getItem('log') === "true";
 
@@ -21,15 +22,15 @@ function Login() {
         sessionStorage.setItem('userId', response.data.userId);
           axios.get(`http://localhost:3000/profile/${response.data.userId}`)
             .then((response) => {
-              const userData = response.data.data;
-              const ed_id = userData.ed_id;
-              const an_id = userData.an_id;
-              const role = userData.role;
+              setUserData ( response.data.data);
+              const data = response.data.data
+              const ed_id = data.ed_id;
+              const an_id = data.an_id;
+              const role = data.role;
               sessionStorage.setItem('ed_id', ed_id);
               sessionStorage.setItem('an_id', an_id);
               sessionStorage.setItem('role', role);
               sessionStorage.setItem('log', true);
-              window.location.href = "/";
             })
             .catch((error) => {
               console.log(error);
@@ -44,13 +45,16 @@ function Login() {
       setErrorMessage("An error occurred while logging in");
     });
   }
-
   useEffect(() => {
     if (isLoggedIn) {
-      window.location.href = "/";
+      if (userData.role == 3) {
+        window.location.href = "/admin";
+      } else {
+        window.location.href = "/";
+      }
     }
-  }, [isLoggedIn]);
-
+  }, [isLoggedIn, userData]);
+  
   return (
     <Fragment>
       <div className="reg">

@@ -1,33 +1,39 @@
-import React, { Fragment } from 'react'
+import React, {  Fragment } from 'react'
+import { useNavigate } from 'react-router-dom';
+export default function Women_card(props) {
+const name = props.name;
+const id =props.id;
+const community_type = props.community_type;
+const img = "http://localhost:3000/images/"+props.img;
 
-export default function Womencard() {
+const navigate = useNavigate();
+const toEditor=()=>{
+    navigate('/Editor',{state:{ data: id }});
+      }
   return (
     <Fragment>
-            <div className="col-lg-4">
- <div className="item">
-    <div className="thumb">
-      <div className="hover-content">
-        <ul>
-          <li><a href="/profile"><i className="fa fa-eye" /></a></li>
-          <li><a href="/profile"><i className="fa fa-star" /></a></li>
-          <li><a href="/profile"><i className="fa fa-shopping-cart" /></a></li>
-        </ul>
-      </div>
-      <img src="" alt="" />
-    </div>
-    <div className="down-content">
-      <h4>New Green Jacket</h4>
-      <span>$75.00</span>
-      <ul className="stars">
+    <div className="col-lg-4">
+                <div className="item">
+                    <div className="thumb">
+                        <div className="hover-content">
+                            <ul>
+                                <li><a onClick={toEditor}><i className="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <img src={img} alt=""/>
+                    </div>
+                    <div className="down-content">
+                        <h4>{name}</h4>
+                        <span>{community_type}</span>
+                        <ul className="stars">
                             <li><i className="fa fa-star"></i></li>
                             <li><i className="fa fa-star"></i></li>
                             <li><i className="fa fa-star"></i></li>
                             <li><i className="fa fa-star"></i></li>
                             <li><i className="fa fa-star"></i></li>
                         </ul>
-    </div>
-    </div>
-
-  </div></Fragment>
+                    </div>
+                </div>
+            </div></Fragment>
   )
 }

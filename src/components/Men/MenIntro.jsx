@@ -7,8 +7,8 @@ export default function MenIntro() {
     <div className="row">
         <div className="col-lg-6">
             <div className="section-heading">
-                <h2>Men's Latest</h2>
-                <span>Details to details is what makes Hexashop different from the other themes.</span>
+                <h2>Men's Editors</h2>
+                <span>Details Of Our Men Editors</span>
             </div>
         </div>
     </div>

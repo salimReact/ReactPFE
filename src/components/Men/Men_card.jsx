@@ -1,10 +1,14 @@
 import React, {  Fragment } from 'react'
+import {useNavigate} from 'react-router-dom'
 export default function Men_card(props) {
 const name = props.name;
+const id = props.id;
 const community_type = props.community_type;
 const img = "http://localhost:3000/images/"+props.img;
-
-
+const navigate = useNavigate();
+const toEditor=()=>{
+    navigate('/Editor',{state:{ data: id }});
+      }
   return (
     <Fragment>
     <div className="col-lg-4">
@@ -12,9 +16,7 @@ const img = "http://localhost:3000/images/"+props.img;
                     <div className="thumb">
                         <div className="hover-content">
                             <ul>
-                                <li><a href="/profile"><i className="fa fa-eye"></i></a></li>
-                                <li><a href="/profile"><i className="fa fa-star"></i></a></li>
-                                <li><a href="/profile"><i className="fa fa-shopping-cart"></i></a></li>
+                                <li><a onClick={toEditor}><i className="fa fa-eye"></i></a></li>
                             </ul>
                         </div>
                         <img src={img} alt=""/>

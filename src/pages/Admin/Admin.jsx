@@ -32,7 +32,7 @@ export default function Admin() {
             </div>
           </div>
           <div className="card-body">
-            <h6 className="heading-small text-muted mb-4">Users Activities</h6>
+            <h6 className="heading-small text-muted mb-4">Your Activities</h6>
             <div className="pl-lg-4">
               <div className="row">
                 <div className="col-lg-10">
@@ -42,10 +42,10 @@ export default function Admin() {
                         <a href="/CheckUser">Check User</a>
                       </li>
                       <li>
-                        <a href="/UpdateUser">Update User</a>
+                        <a href="/CheckCampaign">Check Campaign</a>
                       </li>
                       <li>
-                        <a href="/DeleteUser">Delete User</a>
+                        <a href="/CheckContract">Check Contract</a>
                       </li>
                     </ul>
                   </div>
@@ -54,39 +54,6 @@ export default function Admin() {
             </div>
           </div>
         </div>
-
-        <div className="card bg-secondary shadow">
-          <div className="card-header bg-white border-0">
-            <div className="row align-items-center">
-              <div className="col-8">
-                <h3 className="d-flex justify-content-center bg-white mb-0">Campaign</h3>
-              </div>
-            </div>
-          </div>
-          <div className="card-body">
-            <h6 className="heading-small text-muted mb-4">Campaign Activities</h6>
-            <div className="pl-lg-4">
-              <div className="row">
-                <div className="col-lg-10">
-                  <div className="form-group focused">
-                    <ul>
-                      <li>
-                      <a href="CheckCampaign">Check Campaign</a>
-                      </li>
-                      <li>
-                      <a href="UpdateCampaign">Update Campaign</a>
-                      </li>
-                      <li>
-                        <a href="DeleteCampaign">Delete Campaign</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>

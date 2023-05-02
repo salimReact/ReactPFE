@@ -27,7 +27,8 @@ import GetMessages from './pages/Messages/GetMessages'
 import ListMessages from './pages/Messages/ListMessages'
 import Admin from './pages/Admin/Admin'
 import CheckUser from './pages/Admin/CheckUser'
-
+import CheckCampaign from './pages/Admin/CheckCampaign'
+import CheckContract from './pages/Admin/CheckContract'
 
 
 
@@ -63,6 +64,10 @@ function App() {
       <Route  path="/ListMessages" element={<ListMessages/>}/> 
       <Route  path="/Admin" element={<Admin/>}/> 
       <Route  path="/CheckUser" element={<CheckUser/>}/> 
+      <Route  path="/CheckCampaign" element={<CheckCampaign/>}/> 
+      <Route  path="/CheckContract" element={<CheckContract/>}/> 
+
+
 
       </Routes>
     )

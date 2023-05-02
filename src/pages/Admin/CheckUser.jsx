@@ -54,7 +54,10 @@ const CheckUser = () => {
                           method: 'DELETE'
                         })
                         .then(res => res.json())
-                        .then(data => console.log(data))
+                        .then(data => {
+                          console.log(data);
+                          alert(JSON.stringify(data));
+                      })
                         .catch(err => console.error(err));
                       }}
                 >
