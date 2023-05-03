@@ -58,7 +58,7 @@ const toDevis=()=>{
         <div className="text px-6 py-4">
           <div className="font-bold text-xl mb-2">Campaign type : {campaign.type_camp}</div>
           <p className="text-gray-700 text-base">Campaign sector : {campaign.sector_camp}</p>
-          <p className="text-gray-700 text-base">Campaign Discreption : {campaign.description}</p>
+          <p className="text-gray-700 text-base">Campaign Description : {campaign.description}</p>
           <p className="text-gray-700 text-base">Campaign period : {campaign.period}</p>
           <p className="text-gray-700 text-base">Campaign audience : {campaign.audience}</p>
           <p className="text-gray-700 text-base">Campaign channels : {campaign.channels}</p>
