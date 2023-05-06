@@ -11,100 +11,59 @@ export default function Banner() {
           <div className="left-content">
             <div className="thumb">
               <div className="inner-content">
-                <h4>We Are Hexashop</h4>
-                <span>Awesome, clean &amp; creative HTML5 Template</span>
+                <h4>Here is Our Editors</h4>
+                <span>Awesome, Creative &amp; Passionate</span>
                 <div className="main-border-button">
-                  <a href="#">Purchase Now!</a>
+                  <a href="/Editors">Check Them !</a>
                 </div>
               </div>
-              <img src="images/men-01.jpg" alt="" />
+              <img src="images/Editor1.jpg" alt="" class="img-fluid object-fit"/>
             </div>
           </div>
         </div>
         <div className="col-lg-6">
           <div className="right-content">
             <div className="row">
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div className="right-first-image">
                   <div className="thumb">
                     <div className="inner-content">
-                      <h4>Women</h4>
-                      <span>Best Clothes For Women</span>
+                      <h4>About</h4>
+                      <span>About Us</span>
                     </div>
                     <div className="hover-content">
                       <div className="inner">
-                        <h4>Women</h4>
-                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                        <h4>About</h4>
+                        <p>"At Coop, we're committed to providing high-quality and exceptional Editors and Annoncers service to meet the needs"</p>
+                        <div className="main-border-button">
+                          <a href="/about">Discover More</a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="images/About.jpg" alt="" class="img-fluid object-fit"/>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-12">
+                <div className="right-first-image">
+                  <div className="thumb">
+                    <div className="inner-content">
+                      <h4>Contact</h4>
+                      <span>Contact Us</span>
+                    </div>
+                    <div className="hover-content">
+                      <div className="inner">
+                        <h4>Contact</h4>
+                        <p>Contact us to learn more about Coop</p>
                         <div className="main-border-button">
                           <a href="#">Discover More</a>
                         </div>
                       </div>
                     </div>
-                    <img src="images/men-01.jpg" />
+                    <img src="images/contact1.jpg" alt="" class="img-fluid object-fit"/>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="right-first-image">
-                  <div className="thumb">
-                    <div className="inner-content">
-                      <h4>Men</h4>
-                      <span>Best Clothes For Men</span>
-                    </div>
-                    <div className="hover-content">
-                      <div className="inner">
-                        <h4>Men</h4>
-                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                        <div className="main-border-button">
-                          <a href="#">Discover More</a>
-                        </div>
-                      </div>
-                    </div>
-                    <img src="images/baner-right-image-01.jpg"  />
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="right-first-image">
-                  <div className="thumb">
-                    <div className="inner-content">
-                      <h4>Kids</h4>
-                      <span>Best Clothes For Kids</span>
-                    </div>
-                    <div className="hover-content">
-                      <div className="inner">
-                        <h4>Kids</h4>
-                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                        <div className="main-border-button">
-                          <a href="#">Discover More</a>
-                        </div>
-                      </div>
-                    </div>
-                    <img src="images/logo.png" />
-
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="right-first-image">
-                  <div className="thumb">
-                    <div className="inner-content">
-                      <h4>Accessories</h4>
-                      <span>Best Trend Accessories</span>
-                    </div>
-                    <div className="hover-content">
-                      <div className="inner">
-                        <h4>Accessories</h4>
-                        <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                        <div className="main-border-button">
-                          <a href="#">Discover More</a>
-                        </div>
-                      </div>
-                    </div>
-                    <img src="images/logo.png" />
-                  </div>
-                </div>
-              </div>
+              </div>     
             </div>
           </div>
         </div>

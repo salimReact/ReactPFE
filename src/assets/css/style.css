@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #999999, #F7F7F7);
+  background: linear-gradient(135deg, #f1f5f9, #f1f5f9);
 
 }
 
@@ -128,8 +128,9 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #000000, #000);
+  background: linear-gradient(135deg, #206bc4, #206bc4);
  }
+ 
 
 .Loginbutton {
    height: 45px;
@@ -143,7 +144,7 @@
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg, #000000, #000);
+   background: linear-gradient(135deg, #206bc4, #206bc4);
  }
 .Loginbutton :hover{
    transition: scale(0.99); 
