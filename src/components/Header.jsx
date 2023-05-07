@@ -3,7 +3,7 @@ import React, { Fragment,useState  } from 'react'
 export default function Header() {
   const log = sessionStorage.getItem('log');
   const role = sessionStorage.getItem('role');
-
+console.log(role)
 
   return (
     <Fragment>
@@ -23,7 +23,7 @@ export default function Header() {
                 <li className="submenu">
                 <a href="#">Pages</a>
                     {role == 2 ? (
-                      <ul>
+                      <ul className="nav">
                         <li><a href="/CampaignListAnnoncer">Your Campaigns</a></li>
                         <li><a href="/CreateCampaign">Create Campaigns</a></li>
                         <li><a href="/profile">Profile</a></li>
@@ -40,7 +40,13 @@ export default function Header() {
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="/ListMessages">Your Messages</a></li>
                       </ul>
-                    ) : (
+                    ) :  role == 3 ? (
+                      <ul>
+                        <li><a href="/CheckUser">Check User</a></li>
+                        <li><a href="/CheckCampaign">Check Campaign</a></li>
+                        <li><a href="/CheckContract">Check Contract</a></li>
+                      </ul>
+                    ) :  (
                       <ul>
                         <li><a href="/about">About Us</a></li>
                         <li><a href="/Editors">Editors</a></li>
@@ -48,16 +54,6 @@ export default function Header() {
                       </ul>
                     )}
                 </li>
-                <li className="submenu">
-                  <a href="#">Features</a>
-                  <ul>
-                    <li><a href="/profile">Features Page 1</a></li>
-                    <li><a href="/profile">Features Page 2</a></li>
-                    <li><a href="/profile">Features Page 3</a></li>
-                    <li><a href="/profile">Features Page 4</a></li>
-                  </ul>
-                </li>
-                <li className="scroll-to-section"><a href="#explore">Explore</a></li>
                 {log? ( <li className="#"><a href="/Login" onClick={() => sessionStorage.removeItem('log')}>Log out</a></li> ) : ( 
                        <li className="#"><a href="/Login">Login</a></li>
                        
