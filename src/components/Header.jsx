@@ -35,7 +35,7 @@ console.log(role)
                     ) : role == 1 ? (
                       <ul>
                         <li><a href="/YourContract">Your Contract</a></li>
-                        <li><a href="/yourOffers">Your Offers</a></li>
+                        <li><a href="/yourOffers">Your Offers</a></li> 
                         <li><a href="/Editors">Editors</a></li>
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="/ListMessages">Your Messages</a></li>
