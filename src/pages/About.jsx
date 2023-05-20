@@ -1,14 +1,19 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import "../assets/css/aboutus.css"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 export default function About() {
+
+
   return (
     <Fragment>
       <Header/>
-      <div classNameName='body'>
+      <div className='body'>
       <section id="infinite" className="text-white tm-font-big tm-parallax">
       <div className="text-center tm-hero-text-container">
         <div className="tm-hero-text-container-inner">
@@ -102,51 +107,47 @@ export default function About() {
     </section>
     
     <section id="testimonials" className="tm-section-pad-top tm-parallax-2">      
-      <div className="container tm-testimonials-content">
-        <div className="row">
-          <div className="col-lg-12 tm-content-box">
-            <h2 className="text-white text-center mb-4 tm-section-title">Testimonials</h2>
-            <p className="mx-auto tm-section-desc text-center">
-                Nulla dictum sem non eros euismod, eu placerat tortor lobortis. Suspendisse id velit eu libero pellentesque interdum. Etiam quis congue eros.
-              </p>
-            <div className="mx-auto tm-gallery-container tm-gallery-container-2">
-              <div className="tm-testimonials-carousel">
-                <figure className="tm-testimonial-item">
-                  <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
-                  <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                  <figcaption>Catherine Win (Designer)</figcaption>
-                </figure>
-
-                <figure className="tm-testimonial-item">
-                  <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
-                  <blockquote>Testimonial section comes with carousel items. You can use Infinite Loop HTML CSS template for your websites.</blockquote>
-                  <figcaption>Dual Rocker (CEO)</figcaption>
-                </figure>
-
-                <figure className="tm-testimonial-item">
-                  <img src="images/testimonial-img-03.jpg" alt="Image" className="img-fluid mx-auto"/>
-                  <blockquote>Nulla finibus ligula nec tortor convallis tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus.</blockquote>
-                  <figcaption>Sandar Soft (Marketing)</figcaption>
-                </figure>
-
-                <figure className="tm-testimonial-item">
-                  <img src="images/testimonial-img-04.jpg" alt="Image" className="img-fluid mx-auto"/>
-                  <blockquote>Curabitur rutrum pharetra lobortis. Pellentesque vehicula, velit quis eleifend fermentum, erat arcu aliquet neque.</blockquote>
-                  <figcaption>Oliva Htoo (Designer)</figcaption>
-                </figure>
-
-                <figure className="tm-testimonial-item">
-                  <img src="images/testimonial-img-02.jpg" alt="Image" className="img-fluid mx-auto"/>
-                  <blockquote>Integer sit amet risus et erat imperdiet finibus. Nam lacus nunc, vulputate id ex eget, euismod auctor augue.</blockquote>
-                  <figcaption>Jacob Joker (CTO)</figcaption>
-                </figure>
+          <div className="container tm-testimonials-content">
+            <div className="row">
+              <div className="col-lg-12 tm-content-box">
+                <h2 className="text-white text-center mb-4 tm-section-title">Testimonials</h2>
+                <p className="mx-auto tm-section-desc text-center">
+                  Nulla dictum sem non eros euismod, eu placerat tortor lobortis. Suspendisse id velit eu libero pellentesque interdum. Etiam quis congue eros.
+                </p>
+                <div className="mx-auto tm-gallery-container tm-gallery-container-2">
+                  <Slider
+                    dots={true}
+                    infinite={false}
+                    slidesToShow={3}
+                    slidesToScroll={1}
+                  >
+                    <div className="tm-testimonial-item">
+                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
+                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
+                      <figcaption>Catherine Win (Designer)</figcaption>
+                    </div>
+                    <div className="tm-testimonial-item">
+                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
+                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
+                      <figcaption>Catherine Win (Designer)</figcaption>
+                    </div>
+                    <div className="tm-testimonial-item">
+                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
+                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
+                      <figcaption>Catherine Win (Designer)</figcaption>
+                    </div>
+                    <div className="tm-testimonial-item">
+                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
+                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
+                      <figcaption>Catherine Win (Designer)</figcaption>
+                    </div>
+                  </Slider>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="tm-bg-overlay"></div>
-    </section>
+          <div className="tm-bg-overlay"></div>
+        </section>
     
     <section id="gallery" className="tm-section-pad-top">
       <div className="container tm-container-gallery">
@@ -162,7 +163,55 @@ export default function About() {
             <div className="col-12">
                 <div className="mx-auto tm-gallery-container">
                     <div className="grid tm-gallery">
-                      <a href="images/gallery-img-01.jpg">
+                      <Slider
+                        dots={true}
+                        infinite={false}
+                        slidesToShow={5}
+                        slidesToScroll={2}
+                        responsive={[
+                          {
+                            breakpoint: 1199,
+                            settings: {
+                              slidesToShow: 4,
+                              slidesToScroll: 2
+                            }
+                          },
+                          {
+                            breakpoint: 991,
+                            settings: {
+                              slidesToShow: 3,
+                              slidesToScroll: 2
+                            }
+                          },
+                          {
+                            breakpoint: 767,
+                            settings: {
+                              slidesToShow: 2,
+                              slidesToScroll: 1
+                            }
+                          },
+                          {
+                            breakpoint: 480,
+                            settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                            }
+                          }
+                        ]}
+                      >
+                        <a href="images/gallery-img-01.jpg">
+                          <figure className="effect-honey tm-gallery-item">
+                            <img src="images/gallery-tn-01.jpg" alt="Image 1" className="img-fluid" />
+                            <figcaption>
+                              <h2>
+                                <i>
+                                  Physical Health <span>Exercise!</span>
+                                </i>
+                              </h2>
+                            </figcaption>
+                          </figure>
+                        </a>
+                        <a href="images/gallery-img-01.jpg">
                         <figure className="effect-honey tm-gallery-item">
                           <img src="images/gallery-tn-01.jpg" alt="Image 1" className="img-fluid"/>
                           <figcaption>
@@ -226,6 +275,8 @@ export default function About() {
                           </figcaption>
                         </figure>
                       </a>
+                      </Slider>
+                     
                     </div>
                 </div>                
             </div>        
