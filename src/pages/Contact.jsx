@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import Subscribe from '../components/Subscribe'
+import RateUs from '../components/RateUs'
 
 export default function Contact() {
   return (
@@ -20,14 +20,13 @@ export default function Contact() {
         </div>
     </div>
 
-    <div className="contact-us">
-        <div className="container">
+    <div className="contact-us bg-light">
+        <div className="container bg-light">
             <div className="row">
             <div className="col-lg-6">
-                   
-                </div>
-                <div className="col-lg-6">
-                    <div className="section-heading">
+                   <img src="images/Contact.jpg" alt="" />                </div>
+                <div className="col-lg-6 mt-5">
+                    <div className="section-heading mt-5">
                         <h2>Say Hello. Don't Be Shy!</h2>
                         <span>Details to details is what makes Hexashop different from the other themes.</span>
                     </div>
@@ -58,7 +57,7 @@ export default function Contact() {
             </div>
         </div>
     </div>
-   <Subscribe/>
+    <RateUs/>
     <Footer/>
   </div>
 

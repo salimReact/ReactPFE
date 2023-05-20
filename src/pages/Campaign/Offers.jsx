@@ -33,8 +33,8 @@ export default function Offers() {
       <div className="row">
           <div className="col-lg-12">
               <div className="inner-content">
-                  <h2>Your Campaigns</h2>
-                  <span>Check out your campaigns </span>
+                  <h2>Your Offers</h2>
+                  <span>Check out your Offers </span>
               </div>
           </div>
       </div>

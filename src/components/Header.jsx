@@ -23,7 +23,7 @@ console.log(role)
                 <li className="submenu">
                 <a href="#">Pages</a>
                     {role == 2 ? (
-                      <ul className="nav">
+                      <ul>
                         <li><a href="/CampaignListAnnoncer">Your Campaigns</a></li>
                         <li><a href="/CreateCampaign">Create Campaigns</a></li>
                         <li><a href="/profile">Profile</a></li>

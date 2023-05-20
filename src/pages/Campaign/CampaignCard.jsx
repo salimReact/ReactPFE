@@ -27,11 +27,12 @@ export default function CampaignCard( { campaign }) {
     if (campaign.id_list !== null) {
       const idlist = campaign.id_list.split(',');
       const editors = idlist.map((e)=>Andata.filter(item => item.ed_id == e))
+      console.log(idlist);
       editor = editors.map((e)=>e[0])
     } else {
       editor = 0;
     }
-    
+
     console.log(editor);
     
 

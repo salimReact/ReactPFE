@@ -4,10 +4,9 @@ export default function RateUs() {
   return (
     <Fragment>
     <div className='rate'>
-    <h1>ratestar Rating System</h1>
+    <h1>Rate Us</h1>
     <h2>
-    Using CSS Radio Inputs with SVG and <code></code> and{' '}
-    <code></code>{' '}
+      Feel free to rate our service
     </h2>
     <div className='ratestar-source'>
     <svg>

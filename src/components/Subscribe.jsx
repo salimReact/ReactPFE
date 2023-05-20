@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react'
-import RateUs from './rateUs.jsx'
 import '../assets/css/rateus.css'
 
 export default function Subscribe() {
   return (
     <Fragment> 
-      <RateUs/>
     <div className="subscribe">
     <div className="container">
       <div className="row">

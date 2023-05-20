@@ -25,7 +25,7 @@ export default function GetDevis() {
         };
         fetchData();
       }, []);
-      
+      console.log(data)
       const fData = data;
 
       const AccDevis = async () => {

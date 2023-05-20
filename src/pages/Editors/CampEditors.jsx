@@ -11,7 +11,7 @@ export default function CampEditors() {
   
     const location = useLocation();
     const { editor, campaign } = location.state;
-    
+    console.log(editor)
   return (
 
     <Fragment> 
