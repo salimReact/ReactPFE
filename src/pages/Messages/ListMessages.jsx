@@ -33,7 +33,8 @@ export default function ListMessages() {
     <Fragment>
       <Header />
 
-      <div className="page-heading" id="top">
+      <div className="page-heading products-page-heading" id="top">
+        
     <div className="container">
         <div className="row">
             <div className="col-lg-12">

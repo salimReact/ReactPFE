@@ -24,7 +24,10 @@ function EditorRegistrationPart1() {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-  console.log(formData);
+  const isPasswordValid = () => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+    return passwordRegex.test(formData.password);
+  };
 
   return (
     <Fragment>
@@ -51,10 +54,15 @@ function EditorRegistrationPart1() {
             <input type="tel" placeholder="Enter your number"  name="phone"value={formData.phone} onChange={handleChange} required/>
           </div>
           <div className="input-box">
-            <span className="password">Password</span>
-            <input type="password" placeholder="Enter your password"  name="password" value={formData.password} onChange={handleChange} required/>
-          </div>
-        </div>
+                  <span className="password">Password</span>
+                  <input type="password" placeholder="Enter your password" name="password" value={formData.password} onChange={handleChange} required />
+                  {!isPasswordValid() && (
+                    <p className="error">
+                      Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+                    </p>
+                  )}
+                </div>
+                </div>
         <div className="gender-details">
           <input type="radio" name="gender" id="dot-1" value="male" onChange={handleChange}/>
           <input type="radio" name="gender" id="dot-2" value="female" onChange={handleChange}/>
@@ -77,7 +85,7 @@ function EditorRegistrationPart1() {
 
         </div>
         <div className="button">
-<input type="submit" value="Next"/>
+<input type="submit" value="Next" disabled={!isPasswordValid()}/>
         </div>
       </form>
     </div>

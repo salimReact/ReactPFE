@@ -20,8 +20,10 @@ function Registration() {
   const handleChange = (event) => {
     setformAData({ ...formAData, [event.target.name]: event.target.value });
   };
-  console.log(formAData);
-
+  const isPasswordValid = () => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+    return passwordRegex.test(formAData.password);
+  };
   return (
     <Fragment>
        <div className="reg">
@@ -43,8 +45,13 @@ function Registration() {
             <input type="text" placeholder="Enter your number"name="phone" value={formAData.phone}  onChange={handleChange} required/>
           </div>
           <div className="input-box">
-            <span className="details">Password</span>
-            <input type="password" placeholder="Enter your password" name="password" value={formAData.password}  onChange={handleChange} required/>
+                  <span className="password">Password</span>
+                  <input type="password" placeholder="Enter your password" name="password" value={formAData.password} onChange={handleChange} required />
+                  {!isPasswordValid() && (
+                    <p className="error">
+                      Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+                    </p>
+                  )}
           </div>
           
         </div>
@@ -69,7 +76,7 @@ function Registration() {
           </div>
         </div>
         <div className="button">
-<input type="submit" value="Next"/>
+<input type="submit" value="Next" disabled={!isPasswordValid()}/>
 
         </div>
       </form>

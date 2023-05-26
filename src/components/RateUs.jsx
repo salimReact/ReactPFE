@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-
+import '../assets/css/rateus.css'
 export default function RateUs() {
   return (
     <Fragment>
