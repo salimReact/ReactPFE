@@ -106,7 +106,7 @@ export default function About() {
               <div className="col-lg-12 tm-content-box">
                 <h2 className="text-white text-center mb-4 tm-section-title">Testimonials</h2>
                 <p className="mx-auto tm-section-desc text-center">
-                  Nulla dictum sem non eros euismod, eu placerat tortor lobortis. Suspendisse id velit eu libero pellentesque interdum. Etiam quis congue eros.
+
                 </p>
                 <div className="mx-auto tm-gallery-container tm-gallery-container-2">
                   <Slider
@@ -117,8 +117,8 @@ export default function About() {
                   >
                     <div className="tm-testimonial-item">
                       <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
-                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                      <figcaption>Catherine Win (Designer)</figcaption>
+                      <blockquote></blockquote>
+                      <figcaption>Mtiri Salim (Developer)</figcaption>
                     </div>
                     <div className="tm-testimonial-item">
                       <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
@@ -160,13 +160,13 @@ export default function About() {
                       <Slider
                         dots={true}
                         infinite={false}
-                        slidesToShow={5}
-                        slidesToScroll={2}
+                        slidesToShow={3}
+                        slidesToScroll={1}
                         responsive={[
                           {
                             breakpoint: 1199,
                             settings: {
-                              slidesToShow: 4,
+                              slidesToShow: 3,
                               slidesToScroll: 2
                             }
                           },
@@ -193,79 +193,61 @@ export default function About() {
                           }
                         ]}
                       >
-                        <a href="images/gallery-img-01.jpg">
+                        <a href="images/optique.jpg">
                           <figure className="effect-honey tm-gallery-item">
-                            <img src="images/gallery-tn-01.jpg" alt="Image 1" className="img-fluid" />
+                            <img src="images/optique.jpg" alt="Image 1" className="img-fluid" />
                             <figcaption>
-                              <h2>
-                                <i>
-                                  Physical Health <span>Exercise!</span>
-                                </i>
+                              <h2><i>Sarah collaborates with <span>Slim Optique</span></i>
                               </h2>
                             </figcaption>
                           </figure>
                         </a>
-                        <a href="images/gallery-img-01.jpg">
+                        <a href="images/makeup.jpg">
                         <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-01.jpg" alt="Image 1" className="img-fluid"/>
+                          <img src="images/makeup.jpg" alt="Image 1" className="img-fluid"/>
                           <figcaption>
-                            <h2><i>Physical Health <span>Exercise!</span></i></h2>
+                            <h2><i>The collaboration between Miryam and <span>Maybelline </span></i></h2>
                           </figcaption>
                         </figure>
                       </a>
-                      <a href="images/gallery-img-02.jpg">
+                      <a href="images/water.jpg">
                         <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-02.jpg" alt="Image 2" className="img-fluid"/>
+                          <img src="images/water.jpg" alt="Image 2" className="img-fluid"/>
                           <figcaption>
-                            <h2><i>Rain on Glass <span>Second Image</span></i></h2>
+                            <h2><i>Fatma's collaboration with <span>Safia mineral water </span></i></h2>
                           </figcaption>
                         </figure>
                       </a>
-                      <a href="images/gallery-img-03.jpg">
+                      <a href="images/gym.jpg">
                         <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-03.jpg" alt="Image 3" className="img-fluid"/>
+                          <img src="images/gym.jpg" alt="Image 3" className="img-fluid"/>
                           <figcaption>
-                            <h2><i><span>Sea View</span> Mega City</i></h2>
+
+                            <h2><i>The collaboration between Hamza and <span>California Gym</span></i></h2>
                           </figcaption>
                         </figure>
                       </a>
-                      <a href="images/gallery-img-04.jpg">
+                      <a href="images/cinema.jpg">
                         <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-04.jpg" alt="Image 4" className="img-fluid"/>
+                          <img src="images/cinema.jpg" alt="Image 4" className="img-fluid"/>
                           <figcaption>
-                            <h2><i>Dream Girl <span>Thoughts</span></i></h2>
+                            <h2><i>Sami's collaboration with  <span>Pathé</span></i></h2>
                           </figcaption>
                         </figure>
                       </a>
-                      <a href="images/gallery-img-05.jpg">
+                      <a href="images/auto.jpg">
                         <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-05.jpg" alt="Image 5" className="img-fluid"/>
+                          <img src="images/auto.jpg" alt="Image 6" className="img-fluid"/>
                           <figcaption>
-                            <h2><i><span>Workstation</span> Offices</i></h2>
+                            <h2><i>Youssef collaborates with  <span>Moncef jouet</span></i></h2>
                           </figcaption>
                         </figure>
                       </a>
-                      <a href="images/gallery-img-06.jpg">
+                      <a href="images/mono.jpg">
                         <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-06.jpg" alt="Image 6" className="img-fluid"/>
+                          <img src="images/mono.jpg" alt="Image 8" className="img-fluid"/>
                           <figcaption>
-                            <h2><i>Just Above <span>The City</span></i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="images/gallery-img-01.jpg">
-                        <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-01.jpg" alt="Image 7" className="img-fluid"/>
-                          <figcaption>
-                            <h2><i>Another <span>Exercise Time</span></i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="images/gallery-img-02.jpg">
-                        <figure className="effect-honey tm-gallery-item">
-                          <img src="images/gallery-tn-02.jpg" alt="Image 8" className="img-fluid"/>
-                          <figcaption>
-                            <h2><i>Repeated <span>Image Spot</span></i></h2>
+                            <h2><i>Zaineb's collaboration with  <span>Monoprix</span></i></h2>
                           </figcaption>
                         </figure>
                       </a>
