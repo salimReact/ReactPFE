@@ -116,24 +116,24 @@ export default function About() {
                     slidesToScroll={1}
                   >
                     <div className="tm-testimonial-item">
-                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
+                      <img src="images/salim.jpg" alt="Image" className="img-fluid mx-auto"/>
                       <blockquote></blockquote>
                       <figcaption>Mtiri Salim (Developer)</figcaption>
                     </div>
                     <div className="tm-testimonial-item">
                       <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
-                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                      <figcaption>Catherine Win (Designer)</figcaption>
+                      <blockquote></blockquote>
+                      <figcaption>Toumi Raja (Developer)</figcaption>
                     </div>
                     <div className="tm-testimonial-item">
-                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
-                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                      <figcaption>Catherine Win (Designer)</figcaption>
+                      <img src="images/wg.jpg" alt="Image" className="img-fluid mx-auto"/>
+                      <blockquote></blockquote>
+                      <figcaption>Wissal Group(Team)</figcaption>
                     </div>
                     <div className="tm-testimonial-item">
-                      <img src="images/testimonial-img-01.jpg" alt="Image" className="img-fluid mx-auto"/>
-                      <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                      <figcaption>Catherine Win (Designer)</figcaption>
+                    <img src="images/esen.png" alt="Image" className="img-fluid mx-auto"/>
+                      <blockquote></blockquote>
+                      <figcaption>Esen(College)</figcaption>
                     </div>
                   </Slider>
                 </div>
