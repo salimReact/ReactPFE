@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <div>
    <Header/>
-   <div className="page-heading about-page-heading" id="top">
+   <div className="page-heading" id="top">
         <div className="container">
             <div className="row">
                 <div className="col-lg-12">
@@ -24,27 +24,27 @@ export default function Contact() {
         <div className="container bg-light">
             <div className="row">
             <div className="col-lg-6">
-                   <img src="images/Contact.jpg" alt="" />                </div>
+                   <img src="images/Contact.jpg" alt="" /></div>
                 <div className="col-lg-6 mt-5">
                     <div className="section-heading mt-5">
                         <h2>Say Hello. Don't Be Shy!</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <span></span>
                     </div>
-                    <form id="contact" action="" method="post">
+                    <form id="contact-us" action="" method="post">
                         <div className="row">
                           <div className="col-lg-6">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name" required=""/>
+                              <input name="name" type="text" id="name" placeholder="Your name" required/>
                             </fieldset>
                           </div>
                           <div className="col-lg-6">
                             <fieldset>
-                              <input name="email" type="text" id="email" placeholder="Your email" required=""/>
+                              <input name="email" type="text" id="email" placeholder="Your email" required/>
                             </fieldset>
                           </div>
                           <div className="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Your message" required=""></textarea>
+                              <textarea name="message" rows="6" id="message" placeholder="Your message" required></textarea>
                             </fieldset>
                           </div>
                           <div className="col-lg-12">

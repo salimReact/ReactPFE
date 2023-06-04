@@ -17,13 +17,12 @@ export default function CampEditors() {
     <Fragment> 
            <Header/>
           
-   <div className="page-heading" id="top">
+   <div className="page-heading">
     <div className="container">
         <div className="row">
             <div className="col-lg-12">
                 <div className="inner-content">
-                    <h2>Check Our Products</h2>
-                    <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                    <h2>Check Our editors</h2>
                 </div>
             </div>
         </div>

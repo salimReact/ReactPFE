@@ -83,7 +83,7 @@ export default function GetDevis() {
                 <div className="col-lg-6">
                   <div className="form-group">
                     <label className="form-control-label" htmlFor="input-email">Deliverable</label>
-                    <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={fData.deliverable}  name='deliverable' required/>
+                    <input type="email" id="input-email" className="form-control form-control-alternative" placeholder={fData.deliverable}  name='deliverable' readOnly required/>
                   </div>
                 </div>
               </div>
@@ -91,13 +91,13 @@ export default function GetDevis() {
                 <div className="col-lg-6">
                   <div className="form-group focused">
                     <label className="form-control-label" htmlFor="input-first-name">Number of deliverable</label>
-                    <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder={fData.nb_deliverable}  name='nb_deliverable' required/>
+                    <input type="text" id="input-first-name" className="form-control form-control-alternative" placeholder={fData.nb_deliverable}  name='nb_deliverable' readOnly required/>
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="form-group focused">
                     <label className="form-control-label" htmlFor="input-last-name">Price</label>
-                    <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={fData.price}  name='price' required/>
+                    <input type="text" id="input-last-name" className="form-control form-control-alternative" placeholder={fData.price}  name='price' readOnly required/>
                   </div>
                 </div>
               </div>

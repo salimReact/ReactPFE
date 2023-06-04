@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react'
 
 export default function ForgetPassword() {
+
+  const handleClick = () => {
+    alert('Check your email');
+  };
   return (
     <Fragment> <div className="reg">
     <div className="container1">
@@ -14,7 +18,7 @@ export default function ForgetPassword() {
          </div>
          </div>
        <div className="button">
-         <input type="submit" value="Recover here"/>
+         <input type="submit" value="Recover here" onClick={handleClick}/>
        </div>
      </form>
    </div>

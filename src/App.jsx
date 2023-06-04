@@ -46,14 +46,6 @@ function App() {
   return (
     <Routes>
       <Route
-        path="/profile"
-        element={handleRouteProtection([1], <Profile />)}
-      />
-      <Route
-        path="/YourContract"
-        element={handleRouteProtection([1], <YourContract />)}
-      />
-      <Route
         path="/YourOffers"
         element={handleRouteProtection([1], <Offers />)}
       />
@@ -61,22 +53,11 @@ function App() {
         path="/CreateDevis"
         element={handleRouteProtection([1], <CreateDevis />)}
       />
-      <Route
-        path="/Messages"
-        element={handleRouteProtection([1], <Messages />)}
-      />
-      <Route
-        path="/GetMessages"
-        element={handleRouteProtection([1], <GetMessages />)}
-      />
-      <Route
-        path="/ListMessages"
-        element={handleRouteProtection([1], <ListMessages />)}
-      />
+
 
       <Route
         path="/profile"
-        element={handleRouteProtection([2], <Profile />)}
+        element={<Profile />}
       />
       <Route
         path="/Contract"
@@ -102,18 +83,7 @@ function App() {
         path="/CreateCampaign"
         element={handleRouteProtection([2], <CreateCampaign />)}
       />
-      <Route
-        path="/Messages"
-        element={handleRouteProtection([2], <Messages />)}
-      />
-      <Route
-        path="/GetMessages"
-        element={handleRouteProtection([2], <GetMessages />)}
-      />
-      <Route
-        path="/ListMessages"
-        element={handleRouteProtection([2], <ListMessages />)}
-      />
+
 
       <Route
         path="/Admin"
@@ -131,8 +101,20 @@ function App() {
         path="/CheckContract"
         element={handleRouteProtection([3], <CheckContract />)}
       />
+            <Route path="/Messages"
+        element={<Messages />}
+      />
+      <Route
+        path="/GetMessages"
+        element={<GetMessages />}
+      />
+      <Route
+        path="/ListMessages"
+        element={ <ListMessages />}
+      />
 
       <Route path="/" element={<Index />} />
+      <Route path="YourContract" element={<YourContract />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/Editors" element={<Editors />} />

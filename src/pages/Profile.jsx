@@ -116,14 +116,13 @@ const img = "http://localhost:3000/images/"+data.image;
                   <i className="ni location_pin mr-2"></i>tunisia, tunis
                 </div>
                 <div className="h5 mt-4">
-                  <i className="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Officer
+                  <i className="ni business_briefcase-24 mr-2"></i>{data.followers}
                 </div>
                 <div>
-                  <i className="ni education_hat mr-2"></i>University of Computer Science
+                  <i className="ni education_hat mr-2"></i>{data.platforms}
                 </div>
                 <hr className="my-4"/>
                 <p>{data.aboutMe}</p>
-                <a href="#">Show more</a>
               </div>
             </div>
           </div>
